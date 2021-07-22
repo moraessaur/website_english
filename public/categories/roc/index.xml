@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ROC on Site pessoal Lucas Moraes. Data Science. Biology.</title>
+    <link>/categories/roc/</link>
+    <description>Recent content in ROC on Site pessoal Lucas Moraes. Data Science. Biology.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="/categories/roc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Regressão Logística Binomial</title>
+      <link>/blog/regressao_binomial_heart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/regressao_binomial_heart/</guid>
+      <description>body { text-align: justify}  Regressão logística usando o dataset Logistic regression to predict heart disease, extraído do Kaggle.
+Este dataset consiste em uma tabela com uma série de variáveis de pacientes com e sem doenças cardíacas. O objetivo aqui é conferir a probabilidade de um paciente vir a desenvolver doenças cardíacas em sua próxima década de vida, com base nessas informações.
+Nessa análise vou usar uma regressão logística para entender as variáveis que melhor descrevem a variável de resposta (risco de doenças cardíacas nos próximos dez anos), não incluindo nesse post analises preditivas.</description>
+    </item>
+    
+  </channel>
+</rss>

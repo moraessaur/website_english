@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Site pessoal Lucas Moraes. Data Science. Biology.</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on Site pessoal Lucas Moraes. Data Science. Biology.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leitura de tabelas e operações básicas em R.</title>
+      <link>/blog/novo_teste_series/01-spoonful/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/novo_teste_series/01-spoonful/</guid>
+      <description>Hi, I&#39;m the here-bot cat! Use me to find your way in your website.
+Here I am: content/blog/novo_teste_series/01-spoonful.md  To remove me, delete this line inside that file: {{&amp;lt; here &amp;gt;}}
+My content section is: blog  My layout is: single-series   does this work?     or this?      Let&amp;rsquo;s start.
+beginning     middle     end     </description>
+    </item>
+    
+    <item>
+      <title>Análise de dados em R - Ferramentas básicas do Tidyverse</title>
+      <link>/blog/novo_teste_series/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/novo_teste_series/</guid>
+      <description>** No content below YAML for the series _index. This file is a leaf bundle, and provides settings for the listing page layout and sidebar content.**</description>
+    </item>
+    
+  </channel>
+</rss>

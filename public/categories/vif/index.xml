@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vif on Site pessoal Lucas Moraes. Data Science. Biology.</title>
+    <link>/categories/vif/</link>
+    <description>Recent content in vif on Site pessoal Lucas Moraes. Data Science. Biology.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="/categories/vif/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Regressão Linear Simples - Fish Market data</title>
+      <link>/blog/fish_market/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/fish_market/</guid>
+      <description>body { text-align: justify}  Para fazer essa análise, vou usar o dataset Fish quem contém diferentes medidas de peixes registrados em um mercado. Versões com código podem ser conferidas no meu Kaggle (em inglês) ou nas minhas Github pages.
+Meu objetivo aqui vai ser escolher uma variável de resposta e a melhor variável que explique seu comportamento.
+Primeiro vou dar uma olhada no dataset:
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.</description>
+    </item>
+    
+  </channel>
+</rss>

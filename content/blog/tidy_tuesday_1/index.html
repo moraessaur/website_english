@@ -1,0 +1,200 @@
+---
+title: "Data viz: custo de malhas urbanas"
+excerpt: |
+  Passo-a-passo da customização de um gráfico no ggplot2.
+author:
+  - name: Lucas Moraes. 
+    url: https://lucasmoraes.org
+date: 01-05-2021
+categories:
+  - Data viz
+  - ggplot2
+  - Tidy tuesday
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Neste post, vou usar dados do Tidy Tuesday referente à semana de 05/01/2021 para demonstrar o passo-a-passo da criação de um plot. O objetivo desse post é apenas demonstrar algumas ferramentas de formatação do <code>ggplot2</code> e de alguns pacotes acessórios para customizar um gráfico, sem nenhum tipo de objetivo relacionado à análise de dados ou estatística.</p>
+<p>A partir dos dados da tabela, vou mostrar como cheguei no gráfico abaixo:</p>
+<pre><code>## 
+##  Downloading file 1 of 1: `transit_cost.csv`</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div id="formatação-dos-dados" class="section level1">
+<h1>Formatação dos dados</h1>
+<p>Os dados utilizados para gerar esse gráfico se referem à custos referentes à projetos de infraestrutura de trânsito. A tabela contendo os dados pode ser lida diretamente usando a função <code>tt_load</code> do pacote <code>tidytuesday</code>, incluindo como input da função a data referente à inclusão do <em>dataset</em>:</p>
+<pre class="r"><code># carregando todos pacotes utilizados nessa análise
+library(tidyverse) 
+library(scales) # utilizado para configurar a formatação dos eixos do gráfico
+
+tuesdata &lt;- tidytuesdayR::tt_load(&#39;2021-01-05&#39;) # vou baixar os dados referentes à essa semana</code></pre>
+<pre><code>## --- Compiling #TidyTuesday Information for 2021-01-05 ----</code></pre>
+<pre><code>## --- There is 1 file available ---</code></pre>
+<pre><code>## --- Starting Download ---</code></pre>
+<pre><code>## 
+##  Downloading file 1 of 1: `transit_cost.csv`</code></pre>
+<pre><code>## --- Download complete ---</code></pre>
+<pre class="r"><code>transit_cost &lt;- tuesdata$transit_cost # leitura da tabela em si</code></pre>
+<p>Agora, vou dar uma olhada na estrutura da tabela e escolher as variáveis que vou utilizar no plot:</p>
+<pre class="r"><code>glimpse(transit_cost)</code></pre>
+<pre><code>## Rows: 544
+## Columns: 20
+## $ e                &lt;dbl&gt; 7136, 7137, 7138, 7139, 7144, 7145, 7146, 7147, 7152,…
+## $ country          &lt;chr&gt; &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;NL&quot;, &quot;CA&quot;, &quot;US&quot;, &quot;US&quot;,…
+## $ city             &lt;chr&gt; &quot;Vancouver&quot;, &quot;Toronto&quot;, &quot;Toronto&quot;, &quot;Toronto&quot;, &quot;Toront…
+## $ line             &lt;chr&gt; &quot;Broadway&quot;, &quot;Vaughan&quot;, &quot;Scarborough&quot;, &quot;Ontario&quot;, &quot;Yon…
+## $ start_year       &lt;chr&gt; &quot;2020&quot;, &quot;2009&quot;, &quot;2020&quot;, &quot;2020&quot;, &quot;2020&quot;, &quot;2003&quot;, &quot;2020…
+## $ end_year         &lt;chr&gt; &quot;2025&quot;, &quot;2017&quot;, &quot;2030&quot;, &quot;2030&quot;, &quot;2030&quot;, &quot;2018&quot;, &quot;2026…
+## $ rr               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ length           &lt;dbl&gt; 5.7, 8.6, 7.8, 15.5, 7.4, 9.7, 5.8, 5.1, 4.2, 4.2, 6.…
+## $ tunnel_per       &lt;chr&gt; &quot;87.72%&quot;, &quot;100.00%&quot;, &quot;100.00%&quot;, &quot;57.00%&quot;, &quot;100.00%&quot;, …
+## $ tunnel           &lt;dbl&gt; 5.0, 8.6, 7.8, 8.8, 7.4, 7.1, 5.8, 5.1, 4.2, 4.2, 6.3…
+## $ stations         &lt;dbl&gt; 6, 6, 3, 15, 6, 8, 5, 2, 2, 2, 3, 3, 4, 7, 13, 4, 4, …
+## $ source1          &lt;chr&gt; &quot;Plan&quot;, &quot;Media&quot;, &quot;Wiki&quot;, &quot;Plan&quot;, &quot;Plan&quot;, &quot;Wiki&quot;, &quot;Med…
+## $ cost             &lt;dbl&gt; 2830, 3200, 5500, 8573, 5600, 3100, 4500, 1756, 3600,…
+## $ currency         &lt;chr&gt; &quot;CAD&quot;, &quot;CAD&quot;, &quot;CAD&quot;, &quot;CAD&quot;, &quot;CAD&quot;, &quot;EUR&quot;, &quot;CAD&quot;, &quot;USD…
+## $ year             &lt;dbl&gt; 2018, 2013, 2018, 2019, 2020, 2009, 2018, 2012, 2023,…
+## $ ppp_rate         &lt;dbl&gt; 0.840, 0.810, 0.840, 0.840, 0.840, 1.300, 0.840, 1.00…
+## $ real_cost        &lt;chr&gt; &quot;2377.2&quot;, &quot;2592&quot;, &quot;4620&quot;, &quot;7201.32&quot;, &quot;4704&quot;, &quot;4030&quot;, …
+## $ cost_km_millions &lt;dbl&gt; 417.05263, 301.39535, 592.30769, 464.60129, 635.67568…
+## $ source2          &lt;chr&gt; &quot;Media&quot;, &quot;Media&quot;, &quot;Media&quot;, &quot;Plan&quot;, &quot;Media&quot;, &quot;Media&quot;, …
+## $ reference        &lt;chr&gt; &quot;https://www.translink.ca/Plans-and-Projects/Rapid-Tr…</code></pre>
+<p>Vou plotar o custo real da construção das malhas (<code>real_cost</code>) em função do comprimento delas (<code>length</code>), unidades respectivamente em dólares e km. Cada observação representa uma malha de uma determinada cidade em um determinado país.</p>
+<p>Antes de fazer isso, entretanto, tenho que alterar o tipo da coluna <code>real_cost</code>, que está como <em>string</em>. Vou passar para a coluna para numérico:</p>
+<pre class="r"><code>transit_cost &lt;- 
+  transit_cost %&gt;% 
+    mutate(real_cost=as.numeric(real_cost))</code></pre>
+<pre><code>## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
+<p>Alguns valores são substituídos por <code>NA</code>. São entradas que contém caracteres além de números. Entradas que contém apenas algarismos (e “.” ou “,”) são convertidos corretamente.</p>
+<p>Em seguida vou remover as entradas <code>NA</code> dessas duas colunas, na tabela:</p>
+<pre class="r"><code>transit_cost &lt;- 
+  transit_cost %&gt;% 
+    filter(!is.na(length), !is.na(real_cost))</code></pre>
+<p>Agora posso plotar os dados!</p>
+</div>
+<div id="gráfico-de-pontos-escala-e-reta-de-regressão" class="section level1">
+<h1>Gráfico de pontos, escala e reta de regressão</h1>
+<p>Indo direto ao ponto, quero plotar um gráfico de pontos usando essas duas variáveis:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point()</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+Os outliers e as diferenças em ordens de grandeza das unidades distorcem bem a escala. Isso pode ser corrigido convertendo a escala para log:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point() +
+  scale_y_log10() + # eixo y em log
+  scale_x_log10() # eixo x em log</code></pre>
+<pre><code>## Warning: Transformation introduced infinite values in continuous x-axis</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+Bem melhor! Existe um problema referente aos pontos que foram computados como <span class="math inline">\(-Inf\)</span> e, por isso, vão sempre tender a 0 no eixo x. Isso ocorreu por causa da conversão para log. Isso poderia ser remediado adicionando um incremento irrisório nos valores apenas para que eles se diferenciassem de 0, mas aqui, em nome da objetividade, vou retirá-los:</p>
+<pre class="r"><code>transit_cost &lt;- # retirando os infinitos negativos da coluna real_cost
+  transit_cost %&gt;% filter(real_cost &gt; 0)
+
+transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) + # plotando novamente
+  geom_point() +
+  scale_y_log10() + # eixo y em log
+  scale_x_log10() # eixo x em log</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+As cores sólidas nos pontos atrapalham a visualização de pontos sobrepostos. Adicionar um efeito de transparência resolve esse problema:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point(alpha=0.5) + #adicionando transparência aos pontos
+  scale_y_log10() + 
+  scale_x_log10() </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Em seguida, vou adicionar uma reta de regressão no gráfico. Isso pode ser feito usando a função <code>geom_smooth</code>, especificando o argumento <code>method</code> como <code>lm</code> (método linear):</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point(alpha=0.5) +
+  geom_smooth(method=&quot;lm&quot;) +
+  scale_y_log10() + 
+  scale_x_log10() </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+Não quero uma linha sólida e também não quero que o erro padrão esteja presente no gráfico. Vou alterar isso incluindo os argumentos <code>lty</code> (de <em>linetype</em>) e <code>se</code> (de <em>standard error</em>). Também quero alterar a cor da reta, o que é feito intuitivamente usando o argumento <code>color</code>:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point(alpha=0.5) +
+  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) + # alterando propriedades da reta
+  scale_y_log10() + 
+  scale_x_log10() </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+# Mexendo nas cores</p>
+<p>Vou alterar agora o esquema de cores. Quero deixar o plano de fundo escuro e os pontos claros. A maior parte dos comandos que alteram esses atributos estão vinculadas à função <code>theme</code>, que além de alterar as cores, também pode ser usada para alterar as fontes e marcações dos eixos.</p>
+<p>Abaixo, altero a cor do grid:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point(alpha=0.5) +
+  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) + 
+  scale_y_log10() + 
+  scale_x_log10() +
+  theme(panel.background = element_rect(fill = &quot;#343536&quot;)) # alterando a cor do grid</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+Obviamente, não posso manter os pontos pretos com essa cor de fundo. Vou inverter a cor deles então, deixando-os, brancos:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point(alpha=0.5, color = &quot;white&quot;) + # alterando a cor dos pontos
+  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
+  scale_y_log10() + 
+  scale_x_log10() +
+  theme(panel.background = element_rect(fill = &quot;#343536&quot;))</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Eu quero <strong>todo</strong> gráfico escuro, não apenas o grid. Então vou incluir mais um argumento na função <code>theme</code> para dar conta disso:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point(alpha=0.5, color = &quot;white&quot;) + 
+  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
+  scale_y_log10() + 
+  scale_x_log10() +
+  theme(panel.background = element_rect(fill = &quot;#343536&quot;),
+        rect = element_rect(fill = &quot;#343536&quot;, color = NA)) # cor na imagem toda</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+Ainda existe uma linha branca envolvendo todo plot, que está bem feia. De novo, vou mexer na função <code>theme</code>, dessa vez incluindo o argumento <code>plot.background</code>, definindo ele como <code>element_rect(color=NA)</code>, o que significa que a margem não vai ter cor nenhuma:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point(alpha=0.5, color = &quot;white&quot;) + 
+  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
+  scale_y_log10() + 
+  scale_x_log10() +
+  theme(panel.background = element_rect(fill = &quot;#343536&quot;),
+        rect = element_rect(fill = &quot;#343536&quot;, color = NA),
+        plot.background = element_rect(color = NA)) # tirando a cor da borda </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+As fontes do gráfico precisam de cores melhores agora. Os texto do gráfico (título, subtítulo e título dos eixos) e o texto das unidades dos eixos em si, são elementos diferentes. Vou definir ambos como branco, usando dois argumentos, <code>text</code> e <code>axis_text</code>:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point(alpha=0.5, color = &quot;white&quot;) + 
+  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
+  scale_y_log10() + 
+  scale_x_log10() +
+  theme(panel.background = element_rect(fill = &quot;#343536&quot;),
+        rect = element_rect(fill = &quot;#343536&quot;, color = NA),
+        plot.background = element_rect(color = NA),
+        text = element_text( color = &quot;white&quot;), # cor do texto do gráfico em branco
+        axis.text = element_text( color = &quot;white&quot;)) # cor do conteúdo dos eixos em branco</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+# Formatando o texto</p>
+<p>Agora vou mexer na formatação do texto dos eixos, saindo da função <code>theme</code>. Primeiro, vou adicionar a notação de grandeza como “.” no eixo x. Isso pode ser feito incluindo o argumento <code>labels = comma_format(big.mark = ".")</code> dentro da função <code>scale_x_log10</code>. Esse argumento não faz parte do <code>ggplot2</code>, ele vem do pacote <code>scales</code>:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point(alpha=0.5, color = &quot;white&quot;) + 
+  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
+  scale_y_log10() + 
+  scale_x_log10(labels = comma_format(big.mark = &quot;.&quot;)) + # notação decimal no eixo
+  theme(panel.background = element_rect(fill = &quot;#343536&quot;),
+        rect = element_rect(fill = &quot;#343536&quot;, color = NA),
+        plot.background = element_rect(color = NA),
+        text = element_text( color = &quot;white&quot;),
+        axis.text = element_text( color = &quot;white&quot;)) </code></pre>
+<pre><code>## Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+## &#39;big.mark&#39; and &#39;decimal.mark&#39; are both &#39;.&#39;, which could be confusing</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Agora, para finalizar, vou adicionar um título, subtítulo e renomear o eixo y e eixo x:</p>
+<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
+  geom_point(alpha=0.5, color = &quot;white&quot;) + 
+  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
+  scale_y_log10() + 
+  scale_x_log10(labels = comma_format(big.mark = &quot;.&quot;)) + # notação decimal no eixo
+  theme(panel.background = element_rect(fill = &quot;#343536&quot;),
+        rect = element_rect(fill = &quot;#343536&quot;, color = NA),
+        plot.background = element_rect(color = NA),
+        text = element_text( color = &quot;white&quot;),
+        axis.text = element_text( color = &quot;white&quot;))  +
+  ylab(&quot;Comprimento (km)&quot;) + # renomeando eixo y
+  xlab(&quot;Custo real (USD)&quot;) + # renomeando eixo x
+  ggtitle(&quot;Custo por comprimento de malhas urbanas.&quot;, # título e subtítulo
+          subtitle = &quot;Dados extraídos do tidy tuesday de 05/01/2020 e utilizado como\nmodelo para um exercício de customização de gráficos no ggplot2.\n\nCada ponto representa uma malha construída em alguma cidade no mundo.\n&quot;)</code></pre>
+<pre><code>## Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+## &#39;big.mark&#39; and &#39;decimal.mark&#39; are both &#39;.&#39;, which could be confusing</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>E pronto! Está aí o gráfico. Lembrando, cada ponto representa uma malha em alguma localidade de alguma cidade de algum país. Então cada país está representado diversas vezes no gráfico, de acordo com a localidade da malha. Entretando, meu foco aqui não foi limpar os dados para análise, apenas utilizá-los para gerar o gráfico customizado.</p>
+</div>

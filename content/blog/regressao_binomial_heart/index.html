@@ -1,0 +1,340 @@
+---
+title: "Regressão Logística Binomial"
+excerpt: |
+  Variáveis relacionadas ao risco de se desenvolver doenças cardíacas.
+author:
+  - name: Lucas Moraes.
+    url: https://lucasmoraes.org
+date: 12-22-2020
+categories:
+  - Regressão Logística
+  - ROC
+  - AUC
+  - Matriz de confusão
+output:
+  distill::distill_article:
+    toc: true
+    self_contained: false
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<style>
+body {
+text-align: justify}
+</style>
+<p>Regressão logística usando o dataset <a href="https://www.kaggle.com/dileep070/heart-disease-prediction-using-logistic-regression"><em>Logistic regression to predict heart disease</em></a>, extraído do Kaggle.</p>
+<p>Este dataset consiste em uma tabela com uma série de variáveis de pacientes com e sem doenças cardíacas. O objetivo aqui é conferir a probabilidade de um paciente vir a desenvolver doenças cardíacas em sua próxima década de vida, com base nessas informações.</p>
+<p>Nessa análise vou usar uma regressão logística para entender as variáveis que melhor descrevem a variável de resposta (risco de doenças cardíacas nos próximos dez anos), não incluindo nesse post analises preditivas.</p>
+<p>Para selecionar as variáveis do modelo, vou usar uma seleção em passo-a-passo (<a href="https://en.wikipedia.org/wiki/Stepwise_regression"><em>stepwise regression</em></a>). Em seguida, vou comparar a performance de meus diferentes modelos usando curvas ROC e a AUC e analisar os coeficientes do modelo escolhido. Também discuto brevemente a acurácia do modelo, a importância de seus falsos negativos e o desbalanço de classes presente no conjunto de dados.</p>
+<p>Exponho parte do código na análise, mas para ter acesso a todo código utilizado, disponibilizo ela em minhas <a href="">GitHub pages</a>. Essa análise também pode ser acessada em meu <a href="">Kaggle</a>, em inglês e numa versão mais enxuta. O código (totalmente reprodutível), também pode ser extraído do <a href="">repositório dessa análise</a>!</p>
+<div id="análise-exploratória" class="section level1">
+<h1>Análise exploratória</h1>
+<hr />
+<p>O primeiro passo é sempre dar uma olhada na estrutura da tabela:</p>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.1.2     ✓ dplyr   1.0.5
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre><code>## 
+## Attaching package: &#39;caret&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     lift</code></pre>
+<pre><code>## 
+## Attaching package: &#39;MASS&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     select</code></pre>
+<pre><code>## Rows: 4,238
+## Columns: 16
+## $ male            &lt;int&gt; 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, …
+## $ age             &lt;int&gt; 39, 46, 48, 61, 46, 43, 63, 45, 52, 43, 50, 43, 46, 41…
+## $ education       &lt;int&gt; 4, 2, 1, 3, 3, 2, 1, 2, 1, 1, 1, 2, 1, 3, 2, 2, 3, 2, …
+## $ currentSmoker   &lt;int&gt; 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, …
+## $ cigsPerDay      &lt;int&gt; 0, 0, 20, 30, 23, 0, 0, 20, 0, 30, 0, 0, 15, 0, 9, 20,…
+## $ BPMeds          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, …
+## $ prevalentStroke &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+## $ prevalentHyp    &lt;int&gt; 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, …
+## $ diabetes        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+## $ totChol         &lt;int&gt; 195, 250, 245, 225, 285, 228, 205, 313, 260, 225, 254,…
+## $ sysBP           &lt;dbl&gt; 106.0, 121.0, 127.5, 150.0, 130.0, 180.0, 138.0, 100.0…
+## $ diaBP           &lt;dbl&gt; 70.0, 81.0, 80.0, 95.0, 84.0, 110.0, 71.0, 71.0, 89.0,…
+## $ BMI             &lt;dbl&gt; 26.97, 28.73, 25.34, 28.58, 23.10, 30.30, 33.11, 21.68…
+## $ heartRate       &lt;int&gt; 80, 95, 75, 65, 85, 77, 60, 79, 76, 93, 75, 72, 98, 65…
+## $ glucose         &lt;int&gt; 77, 76, 70, 103, 85, 99, 85, 78, 79, 88, 76, 61, 64, 8…
+## $ TenYearCHD      &lt;int&gt; 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, …</code></pre>
+<p>Existem algumas variáveis formatadas como numéricas, que são categóricas. Estas serão convertidas para fator. São elas:</p>
+<ul>
+<li><code>male</code>: sexo do paciente</li>
+<li><code>education</code>: escolaridade do paciente</li>
+<li><code>currentSmoker</code>: se fumante no momento do estudo ou não</li>
+<li><code>prevalentStroke</code>: se o paciente já teve infarto</li>
+<li><code>prevalentHyp</code>: se o paciente é hipertenso</li>
+<li><code>diabetes</code>: diabético ou não</li>
+<li><code>TenYearCHD</code>: se o paciente está em risco de desenvolver doenças cardíacas nos próximos dez anos. Essa vai ser a variável de resposta utilizada na regressão logística.</li>
+</ul>
+<p>Em seguida vou fazer uma análise exploratória simples e rápida. Vou primeiro plotar o correlograma das variáveis contínuas:</p>
+<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
+##   method from   
+##   +.gg   ggplot2</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+As correlações são fracas entre as variáveis, no geral. Isso aponta, <em>a priori</em>, para a não colinearidade entre elas, com exceção da relação entre <code>sysBP</code> e <code>diaBP</code>, que parecem se correlacionar. Como nesse caso vou fazer uma seleção por passo-a-passo, essas duas variáveis provavelmente não vão ficar juntas no modelo, mas vale ficar atento.</p>
+<p>Vou agora checar a propoção de casos positivos e negativos em minha variável de resposta, essa informação está armazenada na coluna <code>TenYearCHD</code>:</p>
+<pre><code>## 
+##    0    1 
+## 3594  644</code></pre>
+<p>Existe uma proporção mais alta de pacientes que não desenvolveram doenças (0). Essa é uma informação que vai ser interessante de saber na hora de checar a robustez e acurácia dos modelos, embora não seja condição em uma regressão logística que essas proporções sejam parecidas, para checar a influência dos preditores.</p>
+<p>Finalmente, preciso conferir a presença de valores ausentes na amostra:</p>
+<pre><code>##            male             age       education   currentSmoker      cigsPerDay 
+##               0               0             105               0              29 
+##          BPMeds prevalentStroke    prevalentHyp        diabetes         totChol 
+##              53               0               0               0              50 
+##           sysBP           diaBP             BMI       heartRate         glucose 
+##               0               0              19               1             388 
+##      TenYearCHD 
+##               0</code></pre>
+<p>Vou retirar todas linhas com valores ausentes, pois eles podem inviabilizar ou comprometer a qualidade dos modelos.</p>
+</div>
+<div id="seleção-por-passo-a-passo" class="section level1">
+<h1>Seleção por passo-a-passo</h1>
+<hr />
+<p>Para selecionar o melhor modelo nessa análise, vou usar um método chamado seleção por passo-a-passo (traduzido livremente do inglês <em>stepwise regression</em>). Nele, a escolha das variáveis preditivas é feita de maneira sistemática e iterativa. Além desse método, existe outros dois da mesma família, que poderiam também ser utilizados. Abaixo, descrevo como funciona cada um deles:</p>
+<ul>
+<li><em>Forward selection</em>: parte-se de um modelo sem preditores, que são acrescentados iterativamente, em ordem de contribuição, até que a melhoria do modelo não seja mais significante.</li>
+<li><em>Backward selection</em>: parte-se de um modelo com todos preditores, que são eliminados iterativamente, começando pelos menos significantes, até que o modelo tenha todos preditores relevantes para a regressão.</li>
+<li><em>Stepwise selection</em>: combina as duas abordagens acima. Partindo de um modelo sem preditores, adiciona-se os que mais contribuem para o modelo. Em seguida, são eliminadas variáveis que não contribuem para o modelo, após a consolidação do modelo por adição.</li>
+</ul>
+<p>Aqui, como já dito, optei pela seleção por passo-a-passo. Para isso, vou usar o pacote <code>MASS</code>, que contém a função <code>stepAIC</code>. Nessa função, faço uso do argumento <code>direction</code> para definir o tipo de seleção que vou usar. Para usar a seleção escolhida, preciso partir de um modelo completo, que vou chamar de <code>full.model</code>:</p>
+<pre class="r"><code>(
+full.model &lt;- glm(TenYearCHD ~ ., family = &quot;binomial&quot;, data=df_heart)
+)</code></pre>
+<pre><code>## 
+## Call:  glm(formula = TenYearCHD ~ ., family = &quot;binomial&quot;, data = df_heart)
+## 
+## Coefficients:
+##      (Intercept)             male1               age        education2  
+##        -8.258321          0.534871          0.062166         -0.192060  
+##       education3        education4    currentSmoker1        cigsPerDay  
+##        -0.193891         -0.059869          0.072388          0.018020  
+##           BPMeds  prevalentStroke1     prevalentHyp1         diabetes1  
+##         0.165049          0.704569          0.233855          0.026308  
+##          totChol             sysBP             diaBP               BMI  
+##         0.002369          0.015451         -0.004095          0.005149  
+##        heartRate           glucose  
+##        -0.003007          0.007212  
+## 
+## Degrees of Freedom: 3655 Total (i.e. Null);  3638 Residual
+## Null Deviance:       3121 
+## Residual Deviance: 2752  AIC: 2788</code></pre>
+<p>Em seguida, uso a função <code>stepAIC</code>, definindo o argumento <code>direction</code> para <code>both</code>, chamando o modelo resultante de <code>step.model</code>:</p>
+<pre class="r"><code>library(MASS)
+( 
+step.model &lt;- stepAIC(full.model, direction = &quot;both&quot;, 
+                      trace = FALSE)
+)</code></pre>
+<pre><code>## 
+## Call:  glm(formula = TenYearCHD ~ male + age + cigsPerDay + prevalentStroke + 
+##     prevalentHyp + totChol + sysBP + glucose, family = &quot;binomial&quot;, 
+##     data = df_heart)
+## 
+## Coefficients:
+##      (Intercept)             male1               age        cigsPerDay  
+##        -8.739521          0.553152          0.065337          0.019574  
+## prevalentStroke1     prevalentHyp1           totChol             sysBP  
+##         0.751412          0.226231          0.002248          0.014219  
+##          glucose  
+##         0.007314  
+## 
+## Degrees of Freedom: 3655 Total (i.e. Null);  3647 Residual
+## Null Deviance:       3121 
+## Residual Deviance: 2757  AIC: 2775</code></pre>
+<p>O valor de AIC do modelo otimizado diminuiu, assim como uma série de variáveis foram retiradas. Especificamente, as variáveis abaixo:</p>
+<pre><code>## [1] &quot;education2&quot;     &quot;education3&quot;     &quot;education4&quot;     &quot;currentSmoker1&quot;
+## [5] &quot;BPMeds&quot;         &quot;diabetes1&quot;      &quot;diaBP&quot;          &quot;BMI&quot;           
+## [9] &quot;heartRate&quot;</code></pre>
+<p>Um ponto interessante de reparar é que <code>diaBP</code> foi eliminada em detrimento de <code>sysBP</code>, que foi mantida. Essas eram as variáveis que apresentavam aparente colinearidade. O número de cigarros que um paciente fuma parece contribuir mais que apenas a informação se ele fuma ou não, dado que a variável <code>currentSmoker</code> foi eliminada do modelo. Vou agora criar um modelo usando <strong>apenas</strong> as variáveis que foram <strong>eliminadas</strong>, chamando este de <code>bad.model</code>:</p>
+<pre class="r"><code>(
+bad.model &lt;- glm(TenYearCHD ~ education + currentSmoker + BPMeds + diabetes + diaBP + BMI + heartRate, 
+                 family = &quot;binomial&quot;, data=df_heart)
+)</code></pre>
+<pre><code>## 
+## Call:  glm(formula = TenYearCHD ~ education + currentSmoker + BPMeds + 
+##     diabetes + diaBP + BMI + heartRate, family = &quot;binomial&quot;, 
+##     data = df_heart)
+## 
+## Coefficients:
+##    (Intercept)      education2      education3      education4  currentSmoker1  
+##      -4.158269       -0.512682       -0.430166       -0.295895        0.269852  
+##         BPMeds       diabetes1           diaBP             BMI       heartRate  
+##       0.659125        1.013215        0.029270        0.008303       -0.002736  
+## 
+## Degrees of Freedom: 3655 Total (i.e. Null);  3646 Residual
+## Null Deviance:       3121 
+## Residual Deviance: 2982  AIC: 3002</code></pre>
+<p>Conforme o esperado, o AIC dessse modelo foi mais alto que os demais. Vou utilizar esse modelo de maneira comparativa, para apontar diferenças na robustez dele em relação aos demais (full e step).</p>
+<p>Ainda, é sempre bom checar a diferença entre o desvio nulo (referente ao modelo nulo) e o desvio residual, referente ao modelo: em geral, quanto maior essa diferença, melhor. O modelo contendo apenas as variáveis eliminadas tem a menor diferença dentre os três.</p>
+<p>Para simplificar, vou chamar os três modelos que vou comparar de <strong><code>step</code></strong> (modelo gerado pela seleção por passo-a-passo), <strong><code>full</code></strong> (modelo com todas variáveis) e <strong><code>bad</code></strong> (modelo com as variáveis que foram excluídas pela seleção).</p>
+</div>
+<div id="comparando-performances---curvas-roc-e-auc" class="section level1">
+<h1>Comparando performances - curvas ROC e AUC</h1>
+<hr />
+<p>Uma das maneiras utilizadas para comparar a perfomance de modelos é a curva ROC (de <a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc">receiver operating characteristic curve</a>). Basicamente, a curva ROC correlaciona a proporção de observações classificadas corretamente/incorretamente (erros do tipo I e II), dependendo do liminar utilizado para classificar um evento como positivo ou não. Foge do escopo desse post discutir o arcabouço teórico da curva ROC (certamente tema para um post separado).</p>
+<p>O importante a se entender do gráfico abaixo é que, quanto mais próxima a curva é da diagonal tracejada do plot, pior é a perfomance do modelo, pois essa diagonal indica que a proporção de observações classificadas corretamente é igual à proporção de classificações incorretas (o que indica um modelo sem resolução):</p>
+<pre><code>## For binary classification, the first factor level is assumed to be the event.
+## Use the argument `event_level = &quot;second&quot;` to alter this as needed.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;yardstick&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:caret&#39;:
+## 
+##     precision, recall, sensitivity, specificity</code></pre>
+<pre><code>## The following object is masked from &#39;package:readr&#39;:
+## 
+##     spec</code></pre>
+<pre><code>## Joining, by = c(&quot;.rownames&quot;, &quot;TenYearCHD&quot;, &quot;male&quot;, &quot;age&quot;, &quot;cigsPerDay&quot;, &quot;prevalentStroke&quot;, &quot;prevalentHyp&quot;, &quot;totChol&quot;, &quot;sysBP&quot;, &quot;glucose&quot;, &quot;.fitted&quot;, &quot;.resid&quot;, &quot;.std.resid&quot;, &quot;.hat&quot;, &quot;.sigma&quot;, &quot;.cooksd&quot;, &quot;cat&quot;)</code></pre>
+<pre><code>## Joining, by = c(&quot;.rownames&quot;, &quot;TenYearCHD&quot;, &quot;education&quot;, &quot;currentSmoker&quot;, &quot;BPMeds&quot;, &quot;diabetes&quot;, &quot;diaBP&quot;, &quot;BMI&quot;, &quot;heartRate&quot;, &quot;.fitted&quot;, &quot;.resid&quot;, &quot;.std.resid&quot;, &quot;.hat&quot;, &quot;.sigma&quot;, &quot;.cooksd&quot;, &quot;cat&quot;)</code></pre>
+<pre><code>## Warning: The `yardstick.event_first` option has been deprecated as of yardstick 0.0.7 and will be completely ignored in a future version.
+## Instead, set the following argument directly in the metric function:
+## `options(yardstick.event_first = TRUE)`  -&gt; `event_level = &#39;first&#39;` (the default)
+## `options(yardstick.event_first = FALSE)` -&gt; `event_level = &#39;second&#39;`
+## This warning is displayed once per session.</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>O primeiro fato que fica evidente nas curvas é o de que o modelo <code>bad</code>, ou seja, aquele com as variáveis que foram <strong>eliminadas</strong> na seleção, teve a pior perfomance, no tocante às curvas ROC.</p>
+<p>A segunda é que em ambos modelos (<code>full</code> e <code>step</code>), as curvas ROC tiveram comportamento parecido. Porque, se a ideia foi justamente otimizar o modelo? Porquê, no processo de otimização, são retiradas variáveis que geram ruído, mas também variáveis que não contribuem em nada, o que deixa o modelo mais limpo. Um bom modelo é um modelo simples e sem informação irrelevante, minimizando o sobreajuste.</p>
+<p>Vale lembrar, ainda, que embora as curvas ROC estejam similares, os valores de AIC eram diferentes, com o modelo <code>step</code> tendo um valor menor.</p>
+<p>Embora o gráfico seja intuitivo, é importante quantificar a diferença quanto à performance das curvas de acordo com a ROC. Isso pode ser feito computando a AUC (do inglês <em>Area under the ROC curve</em>), que corresponde à area contida na região interna da curva ROC. Quanto maior esse valor, melhor o modelo. A grosso modo, um valor de AUC entre 0.7 e 0.8 é considerado bom. Entre 0.8 e 0.9, a AUC é considerada muito boa e, acima disso, é considerada excelente. Valores abaixo de 0.7 são considerados medíocres, sendo o valor de 0.5 o pior possível, pois corresponde à area delimitada pela diagonal.</p>
+<p>Como as curvas <code>full</code> e <code>step</code> são parecidas, vou comparar os valores de AUC apenas da curva <code>step</code> e <code>bad</code>:</p>
+<pre><code>## # A tibble: 2 x 2
+##   model auc_value
+##   &lt;chr&gt;     &lt;dbl&gt;
+## 1 step      0.737
+## 2 bad       0.650</code></pre>
+<p>Com base nesses valores podemos considerar o modelo <code>step</code> como aceitável e o <code>bad</code> não. Vale notar, entretanto, que existem outras maneiras de testar a robustez dos GLM, além do fato de que as curvas ROC podem ser utilizadas para comparar modelos gerados a partir de algoritmos diferentes (GLM vs. Random Forest, por exemplo).</p>
+</div>
+<div id="intepretando-os-coeficientes" class="section level1">
+<h1>Intepretando os coeficientes</h1>
+<hr />
+<p>Com base nas curvas ROC, o modelo de melhor performance foi o modelo <code>step</code>, gerado a partir da seleção por passo-a-passo. Analisando os coeficientes, podemos saber quais variáveis tem maior influência na chance de se ter doenças cardíacas ou não:</p>
+<pre><code>## 
+## Call:  glm(formula = TenYearCHD ~ male + age + cigsPerDay + prevalentStroke + 
+##     prevalentHyp + totChol + sysBP + glucose, family = &quot;binomial&quot;, 
+##     data = df_heart)
+## 
+## Coefficients:
+##      (Intercept)             male1               age        cigsPerDay  
+##        -8.739521          0.553152          0.065337          0.019574  
+## prevalentStroke1     prevalentHyp1           totChol             sysBP  
+##         0.751412          0.226231          0.002248          0.014219  
+##          glucose  
+##         0.007314  
+## 
+## Degrees of Freedom: 3655 Total (i.e. Null);  3647 Residual
+## Null Deviance:       3121 
+## Residual Deviance: 2757  AIC: 2775</code></pre>
+<p>Todas as variáveis incluídas nesse modelo se correlacionam positivamente com a chance de se ter uma doença cardíaca. Para termos uma visão ainda melhor da importância de cada coeficiente, estes podem ser ordenados de acordo com o valor de suas estatísticas t, que consiste nos valores dos coeficientes divididos pelos seus erros padrão:</p>
+<pre><code>## # A tibble: 8 x 2
+##   variavel         t.stat
+##   &lt;chr&gt;             &lt;dbl&gt;
+## 1 age               10.1 
+## 2 male1              5.17
+## 3 sysBP              4.98
+## 4 cigsPerDay         4.68
+## 5 glucose            4.37
+## 6 totChol            2.00
+## 7 prevalentHyp1      1.67
+## 8 prevalentStroke1   1.55</code></pre>
+<p>As variáveis mais relevantes dentre aquelas do modelo selecionado são a idade e o sexo.</p>
+<p>Quando as demais variáveis são constantes, homens tem uma chance 1.74 maior de terem doenças cardíacas. Esse incremento é um pouco menor no caso da idade, mas deve-se levar em consideração que essa variável é contínua, o que não é o caso do sexo, que assume apenas dois valores (macho ou fêmea).</p>
+<p>Considerando as demais variáveis constantes, o incremento em uma unidade de idade (ano), acarreta uma chance 1.07 maior de um paciente ter uma doença cardiovascular. Uma pessoa dez anos mais velha que outra, portanto, nessas condições tem 10.68 mais chances de desenvolver uma doença, de acordo com o modelo.</p>
+<p>Sexo e idade, entretanto, não são variáveis cujo controle pode ser feito (você não pode decidir parar de envelhecer, embora seja tentador). Mas o número de cigarros consumidos diariamente sim. Na amostra, o paciente que consome o maior número de cigarros por dia, consome um total de 70 cigarros diariamente, o que acarreta uma chance 71.38 vezes maior de ter uma doença cardíaca nos próximos dez anos, do que uma pessoa que não fuma, mantendo todas demais variáveis constantes.</p>
+<p>Ademais, a presença da glicose e do colesterol dentre as variáveis do modelo denota a importância de uma dieta saudável na prevenção de doenças do coração.</p>
+<p>Naturalmente, a hipertensão e a ocorrência de um infarto pretérito, também contribuem para um aumento na chance de se desenvolver doenças.</p>
+</div>
+<div id="matrizes-de-confusão-acurácia-e-poder-preditivo" class="section level1">
+<h1>Matrizes de confusão, acurácia e poder preditivo</h1>
+<hr />
+<p>Outra maneira de entender a perfomance de um modelo é através do uso da acurácia. Essa métrica, entretanto, tem de ser utilizada com cautela, principalmente quando o objetivo é fazer análises preditivas. Nesse caso específico, existem dois motivos para isso: o desbalanço de classes e a gravidade da presença de falsos negativos.</p>
+<p>Embora o objetivo aqui não tenha sido fazer uma análise preditiva e sim verificar a perfomance dos modelos em relação às variáveis preditoras, vale a pena dar uma olhada em algumas informações das matrizes de confusão dos modelos.</p>
+<p>Como foi visto na EDA, feita no início da análise, existem muito mais casos negativos que positivos de pacientes doentes, nos dados. Especificamente, existe uma proporção de 84% de casos negativos e 16% de positivos. Isso significa que, se todos pacientes forem simplesmente classificados como negativos, o modelo vai ter uma taxa de acerto de 84%. Este fato reforça que a acurácia não é a melhor maneira de se comparar a perfomance dos modelos com base nos dados do jeito que estão. Isso pode ser conferido a partir de algumas informações contidas na matriz de confusão dos modelos, gerada usando pacote <code>caret</code>.</p>
+<p>Primeiro, a matriz de confusão do modelo step:</p>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    0    1
+##          0 3081  512
+##          1   18   45
+##                                           
+##                Accuracy : 0.855           
+##                  95% CI : (0.8432, 0.8663)
+##     No Information Rate : 0.8476          
+##     P-Value [Acc &gt; NIR] : 0.1108          
+##                                           
+##                   Kappa : 0.1178          
+##                                           
+##  Mcnemar&#39;s Test P-Value : &lt;2e-16          
+##                                           
+##               Precision : 0.71429         
+##                  Recall : 0.08079         
+##                      F1 : 0.14516         
+##              Prevalence : 0.15235         
+##          Detection Rate : 0.01231         
+##    Detection Prevalence : 0.01723         
+##       Balanced Accuracy : 0.53749         
+##                                           
+##        &#39;Positive&#39; Class : 1               
+## </code></pre>
+<p>Existe muita informação associada à essa matriz, mas por hora, o foco é a acurácia, que está quantificada em 85%.</p>
+<p>Se olharmos a matriz de confusão do modelo <code>bad</code>:</p>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    0    1
+##          0 3092  548
+##          1    7    9
+##                                           
+##                Accuracy : 0.8482          
+##                  95% CI : (0.8361, 0.8597)
+##     No Information Rate : 0.8476          
+##     P-Value [Acc &gt; NIR] : 0.4746          
+##                                           
+##                   Kappa : 0.0231          
+##                                           
+##  Mcnemar&#39;s Test P-Value : &lt;2e-16          
+##                                           
+##               Precision : 0.562500        
+##                  Recall : 0.016158        
+##                      F1 : 0.031414        
+##              Prevalence : 0.152352        
+##          Detection Rate : 0.002462        
+##    Detection Prevalence : 0.004376        
+##       Balanced Accuracy : 0.506950        
+##                                           
+##        &#39;Positive&#39; Class : 1               
+## </code></pre>
+<p>Vemos que a acurácia desse modelo é bem próximo à do modelo step, sendo de 84%.</p>
+<p>Isso aponta para a necessidade de ajustar o balanço de classes dos dados, para otimizá-los para uma análise preditiva. Existem <a href="https://www.analyticsvidhya.com/blog/2016/03/practical-guide-deal-imbalanced-classification-problems/">diversas estratégias</a> para lidar com esse problema, mas como o objetivo aqui foi analisar os coeficientes, não será abordado.</p>
+<p>Ainda assim, é possível ver que, mesmo com o problema da acurácia, o modelo <code>step</code> teve uma perfomance um pouco melhor que o modelo <code>bad</code>. Isso pode ser conferido olhando outras métricas informadas nas matrizes, sintetizadas na tabela abaixo:</p>
+<pre><code>## # A tibble: 3 x 3
+##   metrica     step    bad
+##   &lt;fct&gt;      &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Precision 0.714  0.562 
+## 2 Recall    0.0808 0.0162
+## 3 F1        0.145  0.0314</code></pre>
+<p>A precisão mede a taxa de observações positivas classificadas corretamente e uma alta precisão indica uma baixa taxa de falsos positivos. A precisão do modelo <code>step</code> é relativamente alta. Em contrapartida, a precisão do modelo <code>bad</code> foi bem mais baixa. O Recall (sinônimo de sensitividade), foi baixo em ambos modelos, o que compromete o poder preditivo. Ainda, o valor de F1 para ambos modelos também fui muito baixo, reforçando que existe trabalho a ser feito para corrigir o desbalanço de classes.</p>
+<p>Além desse problema, mesmo que ele fosse resolvido, outra questão teria que ser abordada. Ainda que fosse alcançado um modelo com alta acurácia e precisão, a presença de falsos negativos poderia ser um problema. Em um estudo desse tipo, onde um falso negativo significa uma pessoa com potencial a desenvolver problemas cardíacos não sendo tratada para tal, é preferível que se tenha um menor poder preditivo geral, desde que o modelo minimize a presença de falsos negativos. O raciocínio é: melhor errar classificando pessoas que não precisam de tratamento como grupos de risco, do que negligenciar o tratamento à pessoas que precisam, por erros de classificação.</p>
+<p>Foge também do escopo entrar nessa questão, mas isso poderia ser feito alterando o <em>threshold</em> utilizado no modelo para classificar um paciente: minimizando esse valor, também minimizamos a proporção de falsos negativos.</p>
+</div>
+<div id="conclusões" class="section level1">
+<h1>Conclusões</h1>
+<hr />
+<p>Com base nos dados e nos modelos implementados, podemos dizer que a idade, sexo e número de cigarros consumidos diariamente estão entre os mais influentes na probabilidade de se desenvolver uma doença cardíaca pelos próximos dez anos.</p>
+<p>A questão do cigarro é particularmente alarmante, dado que ele aumenta quase linearmente o risco de se ter uma doença, a cada cigarro a mais consumido diariamente.</p>
+<p>A seleção por passo-a-passo funcionou bem para otimizar o modelo, reduzindo seu valor de AIC, aumentando a diferença com o modelo nulo e também aumentando o valor de sua AUC.</p>
+<p>Ademais, os dados teriam que ser trabalhados para lidar com o desbalanço de classes presente, fenômeno que compromete a acurácia do poder preditivo dos mesmos.</p>
+</div>

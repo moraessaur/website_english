@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>workshop on Site pessoal Lucas Moraes. Data Science. Biology.</title>
+    <link>/categories/workshop/</link>
+    <description>Recent content in workshop on Site pessoal Lucas Moraes. Data Science. Biology.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 12 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/workshop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A campfire</title>
+      <link>/talk/campfire/</link>
+      <pubDate>Tue, 12 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/campfire/</guid>
+      <description>Hi, I&#39;m the here-bot cat! Use me to find your way in your website.
+Here I am: content/talk/campfire/index.md  To remove me, delete this line inside that file: {{&amp;lt; here &amp;gt;}}
+My content section is: talk  My layout is: single  Images in this page bundle: /talk/campfire/featured.jpg   I&amp;rsquo;m really excited to give this talk! Stay tuned for video and slides.</description>
+    </item>
+    
+  </channel>
+</rss>
