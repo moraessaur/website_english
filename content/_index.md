@@ -1,13 +1,13 @@
 ---
 title: "Lucas Moraes"
 subtitle: "Data scientist & biologist."
-description: "Genetics MSc and BSc, passionate about data science.<br><br>
+description: "MSc and BSc in genetics, passionate about data science.<br><br>
 I use data science, statistics and computer programming tools to answer
 questions and solve problems. <br><br>
-In this personal site, I talk a little about my career, link my portfolio 
+In this personal site, I explain a little about my career, host my portfolio 
 and put my contact at disposal.
 
-[A very straightforward version of my cv can be acessed here](https://www.lucasmoraes.org/cv/)"
+[A straightforward version of my cv can be acessed here](https://www.lucasmoraes.org/cv/)"
 
 date: 2019-02-18T12:27:33-06:00
 images:
@@ -17,7 +17,7 @@ text_align_left: true
 show_social_links: true # specify social accounts in site config
 show_action_link: true
 action_link: /about
-action_label: "Leia mais &rarr;"
+action_label: "Read more &rarr;"
 action_type: text # text, button
 type: home
 ---

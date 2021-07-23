@@ -7,36 +7,54 @@ headline: |
 ---
 
 <!-- this is a subheadline -->
-I'm a data scientists that hails from the world of bioinformatics. I have been working with data science for several years, working for the private sector whilst also doing consulting for academic projetcs.
+I'm a data scientist that hails from the world of bioinformatics. I have been working with data science for several years, currenlty working for the private sector whilst also doing consulting for academic projetcs.
 
-My career began by doing research with evolutionary biology, specifically molecular evolution and bayesian inference [evolução molecular e inferência bayesiana](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028297), subjects of my masters and bachelors, which were conducted at the Federal University of Rio de Janeiro. This context formed the basis of my knowledge in statistics and programming (mainly in R).
+My career began by doing research regarding evolutionary biology, specifically [molecular evolution and bayesian inference](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028297), subjects of my masters and bachelors, which were conducted at the Federal University of Rio de Janeiro (UFRJ). This context formed the basis of my knowledge in statistics and programming.
 
-I also worked at the National Centre for Flora Conservation [Centro Nacional de Conservação da Flora do Brasil](http://www.cncflora.jbrj.gov.br/portal), at the Rio de Janeiro botanic gardens.
-Besides being a environmental analyst over there, I also worked as a data analyst, using R to automatize tasks, perform statistical analyses and solve data related problemas in general. This work became
+I also worked at the [National Centre for Flora Conservation](http://www.cncflora.jbrj.gov.br/portal), at the Rio de Janeiro botanic gardens.
+Besides being a environmental analyst over there, I also worked as a data analyst, using R to automatize tasks, perform statistical analyses and solve data related problems in general. 
 
+Since then, I have honed my skills as a data scientist and took the plunge to industry. I currently work for [Melhor Envio](https://melhorenvio.com.br/), mainly, but not only, with client segmentation and metric enhancement, in order to help stakeholders make data driven decisions.
 
- Lá, além de ser analista ambiental, também fui analista de dados, usando R para automatizar processos, fazer análises estatísticas e responder perguntas em geral, atividade que passou a ser integral em minha rotina. Esse período foi de valioso aprendizado, uma vez que apliquei meu conhecimento em pesquisas mais voltadas a políticas públicas, lidando com uma série de dados e contexto distintos, fora de minha "zona de conforto".
+I believe technology is paramount in good decision making and to aid the resolution of problems in a broad spectre (local, global, small or big). I am 
+also a keen advocate of good communication, of both data related and scientific information. Besides that, I also thinks is equally important to perform
+analyses in a transparent, robust and reproductible way. Such is the way of good science.
 
-A valorização do meu trabalho como cientista de dados me levou a prestar consultorias em tempo integral, ao passo que me capacitava em ferramentas com maior demanda no mercado, onde atuo no momento.
+My main lines of work revolve around:
 
-Acredito que a tecnologia é fundamental na tomada de boas decisões e para agilizar a resolução
-de problemas em amplo espectro (locais, globais, de pequeno ou grande porte). Também prezo pela importância da boa comunicação, tanto de dados quanto de informações científicas. Além disso, vejo de maneira igualmente importante a transparência, robustez e reprodutibilidade de análises, como é de praxe na boa ciência.
+* **R & Python for data analysis (and SQL for queries):**
+  My main programming  language is R, where I feel at home by using the tools
+  and sintax provided by the `tidyverse`. Even though, I also use `python`
+  when needed (pandas, matplotlib, seaborn, scikit-learn). I use these tools
+  mainly to extract, wrangle, compile, analyse and visualize data from different
+  sources, structured or not. I am also proficient in SQL (PostgreSQL) in order
+  to query relational databses.
 
-Minhas principais linhas de atuação:
+* **Statistics and Machine Learning:**
+  I use statistical tools to answer questions, test hypothesis and check for robustness.
+  I also implement machine learning models, such as logistic regressions, decision trees
+  and unsupervised models in general. A large portion of this process relies in finding
+  the adequate tool for the task in hand and fine tuning from that point. I believe that
+  feature engineering is also equally important, in order to keep quality an relevance
+  in the data used.
 
-* **R e Python para análise de dados (e SQL para consultas):** <br> Minha linguagem preferencial é R, onde me sinto em casa usando as ferramentas e sintaxe propocionadas pelo `tidyverse`. Ainda assim, também uso `python` (pandas, matplotlib, seaborn, scikit-learn), embora em menor escala. Uso destas ferramentas para extrair, limpar, compilar, analisar e visualizar dados de diversas fontes, estruturados ou não. Também sou capacitado em SQL (PosgreSQL) para consulta de dados de bases relacionais.
+* **Data viz:**
+  Essential to see patterns, send messages and/or generate insight, plots can make all difference
+  in the understanding of the information contained in data. I create customized plots for reports,
+  projects and general purposes. I also have experience developing dashboards (mainly in Looker).
+  Also, although not the main objetive, I think a good design makes everything more pleasant.  
 
-* **Estatística e machine learning:** <br> Uso ferramentas da estatística para responder perguntas e verificar a robustez de análises, através, por exemplo, de testes de hipóteses ou estatísticas descritivas. Também implemento modelos de machine learning, como regressões logísticas, árvores de decisão ou modelos de clusterização. Grande parte desse processo se resume a encontrar a ferramenta adequada ao problema a ser resolvido, da maneira mais parcimoniosa e fazer o ajuste fino a partir desse ponto. Também igualmente importante, está a engenharia de variáveis, que visa selecionar os dados mais relevantes dentre todas opções para se atingir o objetivo pretendido.
+* **Communication:**
+  Frequently, the main public interested in the outcome of an analysis is not made by the ones 
+  who understand what goes under the hood.
+  As such, these information should be translated in order to make complex topics easy to understand.
+  Scheduled reports are also a frequent activity for any data analysis team. The academy prepares
+  us for both of these scenarios and, as such, I aid in scientific writing, presentation development and
+  in creating clear communication, ocasionally making use of tools such as [`rmarkdown`](https://rmarkdown.rstudio.com/)
+  for different types of publications.
 
-* **Visualização de dados:** <br> Fundamental para enxergar padrões, transmitir mensagens e/ou gerar *insights*, gráficos podem fazer toda diferença para entender a informação contida nos dados. Faço gráficos customizados tanto para relatórios, quanto para veículos de comunicação diversos, além de ter experiência na compilação de *dashboards* e ferramentas de B.I. (Looker). Embora não seja o foco, também acredito que um bom *design* torne tudo mais atraente.
-
-* **Comunicação:** <br> Muitas vezes o púbico alvo de uma análise não é formada por técnicos, e, sendo assim, a informação deve ser traduzida, induzindo a fácil compreensão de temas complexos. Outras vezes precisamos alterar um texto diversas vezes conforme análises ainda estão sendo realizadas. Acostumado com ambos casos (a academia nos prepara para isso), auxilio na redação de textos/relatórios/apresentações, ocasionalmente fazendo uso de ferramentas como `rmarkdown` para pulicações diversas. 
-
-Um pouco de tudo isso pode ser conferido em meu blog! 
-
-
-
-
+  A little bit of all that can be checked in my blog!
+  
 
 
 

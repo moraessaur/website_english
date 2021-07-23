@@ -129,7 +129,7 @@ enableEmoji = true
 [[menu.header]]
     name = "Portuguese"
     title = "Portuguese"
-    url = "https://www.lucasmoraes.io"
+    url = "https://www.lucasmoraes.org"
     weight = 5
 
   # Configure footer  

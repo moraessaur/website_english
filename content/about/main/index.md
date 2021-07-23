@@ -10,7 +10,7 @@ intro: |
   
   <i class="fas fa-certificate pr2"></i>[Tidyverse Instructor Certification](https://education.rstudio.com/trainers/people/canelon+silvia/)  &#8729;  RStudio, PBC &#8729;  2020
 
-show_outro: true
+show_outro: false
 outro: |
   <i class="fas fa-lightbulb pr2"></i>Biomedical engineer turned informaticist,<br>curious about all intersections of data and society.
 ---
