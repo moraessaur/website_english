@@ -7,7 +7,7 @@ questions and solve problems. <br><br>
 In this personal site, I explain a little about my career, host my portfolio 
 and put my contact at disposal.
 
-[A straightforward version of my cv can be acessed here](https://www.lucasmoraes.org/cv/)"
+[A straightforward version of my cv can be acessed here](https://www.lucasmoraes.io/cv/)"
 
 date: 2019-02-18T12:27:33-06:00
 images:
