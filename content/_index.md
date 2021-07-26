@@ -5,7 +5,7 @@ description: "MSc and BSc in genetics, passionate about data science.<br><br>
 I use data science, statistics and computer programming tools to answer
 questions and solve problems. <br><br>
 In this personal site, I explain a little about my career, host my portfolio 
-and put my contact at disposal.
+and make my contact available.
 
 [A straightforward version of my cv can be acessed here](https://www.lucasmoraes.io/cv/)"
 

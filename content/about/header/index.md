@@ -7,17 +7,17 @@ headline: |
 ---
 
 <!-- this is a subheadline -->
-I'm a data scientist that hails from the world of bioinformatics. I have been working with data science for several years, currenlty working for the private sector whilst also doing consulting for academic projetcs.
+I'm a data scientist that hails from the world of bioinformatics. I have been working with data science for several years, currently working for the private sector whilst also doing consulting for academic projetcs.
 
 My career began by doing research regarding evolutionary biology, specifically [molecular evolution and bayesian inference](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028297), subjects of my masters and bachelors, which were conducted at the Federal University of Rio de Janeiro (UFRJ). This context formed the basis of my knowledge in statistics and programming.
 
 I also worked at the [National Centre for Flora Conservation](http://www.cncflora.jbrj.gov.br/portal), at the Rio de Janeiro botanic gardens.
 Besides being a environmental analyst over there, I also worked as a data analyst, using R to automatize tasks, perform statistical analyses and solve data related problems in general. 
 
-Since then, I have honed my skills as a data scientist and took the plunge to industry. I currently work for [Melhor Envio](https://melhorenvio.com.br/), mainly, but not only, with client segmentation and metric enhancement, in order to help stakeholders make data driven decisions.
+Since then, I have honed my skills as a data scientist and took the plunge to industry. I currently work for [Melhor Envio](https://melhorenvio.com.br/), mainly, but not only, doing client segmentation and metric enhancement, in order to help stakeholders make data driven decisions.
 
 I believe technology is paramount in good decision making and to aid the resolution of problems in a broad spectre (local, global, small or big). I am 
-also a keen advocate of good communication, of both data related and scientific information. Besides that, I also thinks is equally important to perform
+also a keen advocate of good communication, of both data related and scientific information. Besides that, I also think is equally important to perform
 analyses in a transparent, robust and reproductible way. Such is the way of good science.
 
 My main lines of work revolve around:
