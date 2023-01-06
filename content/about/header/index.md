@@ -7,51 +7,35 @@ headline: |
 ---
 
 <!-- this is a subheadline -->
-I'm a data scientist that hails from the world of bioinformatics. I have been working with data science for several years, currently working for the private sector whilst also doing consulting for academic projetcs.
+I’m a data scientist that hails from the world of bioinformatics. I have been working with data for at least a decade already!
+My career began by doing research regarding evolutionary biology, specifically [molecular evolution using bayesian inference and maximum likelihood methods](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028297), subjects of my master's and bachelor's degrees, which were conducted at the Federal University of Rio de Janeiro (UFRJ). This context formed the basis of my knowledge in statistics and computer programming, since back then most tools used in today's data science stack were already part of my everyday life.
 
-My career began by doing research regarding evolutionary biology, specifically [molecular evolution and bayesian inference](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028297), subjects of my masters and bachelors, which were conducted at the Federal University of Rio de Janeiro (UFRJ). This context formed the basis of my knowledge in statistics and programming.
 
-I also worked at the [National Centre for Flora Conservation](http://www.cncflora.jbrj.gov.br/portal), at the Rio de Janeiro botanic gardens.
-Besides being a environmental analyst over there, I also worked as a data analyst, using R to automatize tasks, perform statistical analyses and solve data related problems in general. 
+I’ve also worked for many years at Brazil’s [National Centre for Flora Conservation](http://www.cncflora.jbrj.gov.br/portal), with data/environmental analysis directed to aiding my country’s Ministry of Environment consolidate public policies regarding threatened species and economic activities. This was a period of huge personal growth, since I worked in partnership with several experts and national/international organizations, with politically sensitive topics. 
 
-Since then, I have honed my skills as a data scientist and took the plunge to industry. I currently work for [Melhor Envio](https://melhorenvio.com.br/), mainly, but not only, doing client segmentation and metric enhancement, in order to help stakeholders make data driven decisions.
 
-I believe technology is paramount in good decision making and to aid the resolution of problems in a broad spectre (local, global, small or big). I am 
-also a keen advocate of good communication, of both data related and scientific information. Besides that, I also think is equally important to perform
-analyses in a transparent, robust and reproductible way. Such is the way of good science.
+Both these experiences leveraged my storytelling and softskills, since explaining technical topics to non technical audiences was also part of my daily activities, besides analyzing data and writing reports. With the rise of data science and analytics I naturally took the plunge to the job market, since most of my skills were highly transferable and helping people/enterprises solve problems is greatly rewarding for me.
 
-My main lines of work revolve around:
+Most of my current work revolves around helping people create statistically sound metrics (such as churn or client activity rates), customer behavior/segmentation, experimentation (A/B testing) and predictive modeling. My statistical knowledge and analytical care are my most relied upon skills. 
 
-* **R & Python for data analysis (and SQL for queries):**
-  My main programming  language is R, where I feel at home by using the tools
-  and sintax provided by the `tidyverse`. Even though, I also use `python`
-  when needed (pandas, matplotlib, seaborn, scikit-learn). I use these tools
-  mainly to extract, wrangle, compile, analyse and visualize data from different
-  sources, structured or not. I am also proficient in SQL (PostgreSQL) in order
-  to query relational databses.
+Needless to say, I love technology and science, an environment in which I feel native to. My academic background made me very data oriented, which I consider of utmost importance if the goal is to make truly data driven choices. Although statistical and machine learning modeling is staple for most data related work, I firmly believe in the importance of properly understanding and handling the data, besides carefully designing experiments as means to create robust and trustworthy analyses.
+
+These are the tools I use more often:
+
+
+* **R, Python, SQL and Spark:**
+  My heart lies with R, which I believe is amazing for statistical analyses and data visualization. I do pass the same amount of time programming in python, though, and SQL’s efficiency to extract data from databases is also essential to most data related work. I also use a lot of PySpark and Sparklyr. I like to see myself as language agnostic.
 
 * **Statistics and Machine Learning:**
-  I use statistical tools to answer questions, test hypothesis and check for robustness.
-  I also implement machine learning models, such as logistic regressions, decision trees
-  and unsupervised models in general. A large portion of this process relies in finding
-  the adequate tool for the task in hand and fine tuning from that point. I believe that
-  feature engineering is also equally important, in order to keep quality an relevance
-  in the data used.
+  I use statistical tools to answer questions, test hypothesis and check for robustness. I also implement predictive machine learning models, such as logistic regressions, decision trees and unsupervised models in general. A large portion of this process relies on finding the adequate tool for the task in hand and fine tuning from that point. A statistical mindset is particularly important for experimental design (neglected more often than it should) and to develop metrics which make sense and are not driven purely by beliefs or arbitrary thoughts.
 
-* **Data viz:**
-  Essential to see patterns, send messages and/or generate insight, plots can make all difference
-  in the understanding of the information contained in data. I create customized plots for reports,
-  projects and general purposes. I also have experience developing dashboards (mainly in Looker).
-  Also, although not the main objetive, I think a good design makes everything more pleasant.  
+
+* **Data Viz:**
+  Essential to identify patterns, send messages and/or generate insight, data visualization can make all the difference in understanding the information contained in data. I create customized plots for reports, projects and general purposes. I also have experience developing dashboards (mainly in Looker). Also, although not the main objective, I think a good design makes everything more pleasant to the public. 
 
 * **Communication:**
-  Frequently, the main public interested in the outcome of an analysis is not made by the ones 
-  who understand what goes under the hood.
-  As such, these information should be translated in order to make complex topics easy to understand.
-  Scheduled reports are also a frequent activity for any data analysis team. The academy prepares
-  us for both of these scenarios and, as such, I aid in scientific writing, presentation development and
-  in creating clear communication, ocasionally making use of tools such as [`rmarkdown`](https://rmarkdown.rstudio.com/)
-  for different types of publications.
+  Frequently, the main public interested in the outcome of an analysis is not the same who understand what goes under the hood. As such, this information should be translated in order to make complex topics easy to understand. Scheduled reports are also a frequent activity for any data analysis team. Academia prepares us for both of these scenarios and, as such, I aid in scientific writing, presentation development and in creating clear communication, occasionally making use of tools such as Rmarkdown for different types of publications.
+
 
   A little bit of all that can be checked in my blog!
   
