@@ -5,6 +5,7 @@
     <link>/consulting/</link>
     <description>Recent content in Serviços de consultoria on Site pessoal Lucas Moraes. Data Science. Biology.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="/consulting/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="/consulting/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
