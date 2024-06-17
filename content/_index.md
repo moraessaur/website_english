@@ -1,7 +1,7 @@
 ---
 title: "Lucas Moraes"
 subtitle: "Data scientist, MSc and BSc in genetics."
-description: "testeI am a former researcher turned data scientist. My data science journey started back in 2009 when I did research for my undergraduate project using bayesian inference. During that time I learned a wide array of techniques still very important in data science.
+description: "I am a former researcher turned data scientist. My data science journey started back in 2009 when I did research for my undergraduate project using bayesian inference. During that time I learned a wide array of techniques still very important in data science.
 <br><br>
 I am very fond of creating transparent and reproducible data pipelines, with the goal of making results and methods accessible and comprehensive to all.
 <br><br>
