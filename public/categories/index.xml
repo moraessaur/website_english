@@ -2,108 +2,108 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Site pessoal Lucas Moraes. Data Science. Biology.</title>
-    <link>/categories/</link>
+    <link>//localhost:4321/categories/</link>
     <description>Recent content in Categories on Site pessoal Lucas Moraes. Data Science. Biology.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 02 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:4321/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Análise de dados</title>
-      <link>/categories/an%C3%A1lise-de-dados/</link>
-      <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>/categories/an%C3%A1lise-de-dados/</guid>
+      <title>Análise De Dados</title>
+      <link>//localhost:4321/categories/an%C3%A1lise-de-dados/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:4321/categories/an%C3%A1lise-de-dados/</guid>
       <description></description>
     </item>
     <item>
-      <title>Data viz</title>
-      <link>/categories/data-viz/</link>
-      <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>/categories/data-viz/</guid>
+      <title>Data Viz</title>
+      <link>//localhost:4321/categories/data-viz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:4321/categories/data-viz/</guid>
       <description></description>
     </item>
     <item>
       <title>Flora</title>
-      <link>/categories/flora/</link>
-      <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>/categories/flora/</guid>
+      <link>//localhost:4321/categories/flora/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:4321/categories/flora/</guid>
       <description></description>
     </item>
     <item>
-      <title>Leitura rápida</title>
-      <link>/categories/leitura-r%C3%A1pida/</link>
-      <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>/categories/leitura-r%C3%A1pida/</guid>
+      <title>Leitura Rápida</title>
+      <link>//localhost:4321/categories/leitura-r%C3%A1pida/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:4321/categories/leitura-r%C3%A1pida/</guid>
       <description></description>
     </item>
     <item>
       <title>AUC</title>
-      <link>/categories/auc/</link>
+      <link>//localhost:4321/categories/auc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/auc/</guid>
+      <guid>//localhost:4321/categories/auc/</guid>
       <description></description>
     </item>
     <item>
-      <title>Distância de Cook</title>
-      <link>/categories/dist%C3%A2ncia-de-cook/</link>
+      <title>Distância De Cook</title>
+      <link>//localhost:4321/categories/dist%C3%A2ncia-de-cook/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/dist%C3%A2ncia-de-cook/</guid>
+      <guid>//localhost:4321/categories/dist%C3%A2ncia-de-cook/</guid>
       <description></description>
     </item>
     <item>
-      <title>facet_wrap()</title>
-      <link>/categories/facet_wrap/</link>
+      <title>Facet_wrap()</title>
+      <link>//localhost:4321/categories/facet_wrap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/facet_wrap/</guid>
+      <guid>//localhost:4321/categories/facet_wrap/</guid>
       <description></description>
     </item>
     <item>
-      <title>ggplot2</title>
-      <link>/categories/ggplot2/</link>
+      <title>Ggplot2</title>
+      <link>//localhost:4321/categories/ggplot2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/ggplot2/</guid>
+      <guid>//localhost:4321/categories/ggplot2/</guid>
       <description></description>
     </item>
     <item>
-      <title>Matriz de confusão</title>
-      <link>/categories/matriz-de-confus%C3%A3o/</link>
+      <title>Matriz De Confusão</title>
+      <link>//localhost:4321/categories/matriz-de-confus%C3%A3o/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/matriz-de-confus%C3%A3o/</guid>
+      <guid>//localhost:4321/categories/matriz-de-confus%C3%A3o/</guid>
       <description></description>
     </item>
     <item>
-      <title>Regressão linear</title>
-      <link>/categories/regress%C3%A3o-linear/</link>
+      <title>Regressão Linear</title>
+      <link>//localhost:4321/categories/regress%C3%A3o-linear/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/regress%C3%A3o-linear/</guid>
+      <guid>//localhost:4321/categories/regress%C3%A3o-linear/</guid>
       <description></description>
     </item>
     <item>
       <title>Regressão Logística</title>
-      <link>/categories/regress%C3%A3o-log%C3%ADstica/</link>
+      <link>//localhost:4321/categories/regress%C3%A3o-log%C3%ADstica/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/regress%C3%A3o-log%C3%ADstica/</guid>
+      <guid>//localhost:4321/categories/regress%C3%A3o-log%C3%ADstica/</guid>
       <description></description>
     </item>
     <item>
       <title>ROC</title>
-      <link>/categories/roc/</link>
+      <link>//localhost:4321/categories/roc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/roc/</guid>
+      <guid>//localhost:4321/categories/roc/</guid>
       <description></description>
     </item>
     <item>
-      <title>Tidy tuesday</title>
-      <link>/categories/tidy-tuesday/</link>
+      <title>Tidy Tuesday</title>
+      <link>//localhost:4321/categories/tidy-tuesday/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/tidy-tuesday/</guid>
+      <guid>//localhost:4321/categories/tidy-tuesday/</guid>
       <description></description>
     </item>
     <item>
-      <title>vif</title>
-      <link>/categories/vif/</link>
+      <title>Vif</title>
+      <link>//localhost:4321/categories/vif/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/categories/vif/</guid>
+      <guid>//localhost:4321/categories/vif/</guid>
       <description></description>
     </item>
   </channel>

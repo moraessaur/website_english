@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Leitura rápida on Site pessoal Lucas Moraes. Data Science. Biology.</title>
-    <link>/categories/leitura-r%C3%A1pida/</link>
-    <description>Recent content in Leitura rápida on Site pessoal Lucas Moraes. Data Science. Biology.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Leitura Rápida on Site pessoal Lucas Moraes. Data Science. Biology.</title>
+    <link>//localhost:4321/categories/leitura-r%C3%A1pida/</link>
+    <description>Recent content in Leitura Rápida on Site pessoal Lucas Moraes. Data Science. Biology.</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 02 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/leitura-r%C3%A1pida/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:4321/categories/leitura-r%C3%A1pida/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Histórico de descrições de plantas brasileiras</title>
-      <link>/blog/plantas_br/</link>
+      <link>//localhost:4321/blog/plantas_br/</link>
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>/blog/plantas_br/</guid>
+      <guid>//localhost:4321/blog/plantas_br/</guid>
       <description>Dados - Flora 2020 Nessa análise usei dados extraídos do projeto Flora 2020 do Jardim Botânico do Rio de Janeiro, para gerar algumas visualizações. Como a compilação destes dados foi um processo longo, não vou tratar dela nesse post, mas todas etapas podem ser conferidas em minhas Github pages, na íntegra e com código. A idéia aqui era fazer uma análise mais enxuta e pragmática.&#xA;Os dados estão organizados em uma tabela deinida como df_master, que contém uma série de informações sobre espécies nativas de plantas brasileiras:</description>
     </item>
     <item>
       <title>Data viz: obras de arte</title>
-      <link>/blog/tidy_tuesday_2_art/</link>
+      <link>//localhost:4321/blog/tidy_tuesday_2_art/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/blog/tidy_tuesday_2_art/</guid>
+      <guid>//localhost:4321/blog/tidy_tuesday_2_art/</guid>
       <description>Post mostrando como criar um gráfico facetado, entre alguns recursos adicionais, a partir de dados do Tidy Tuesday da semana de 12-01-2012.&#xA;Como de praxe, o objetivo aqui é apenas fazer uso dos dados para criar uma visualização, explorando um pouco dos recursos do ggplot2 e alguns pacotes acessórios.&#xA;O dataset atual consistem em informações acerca de aproximadamente 70.000 obras de arte. Mais sobre o dataset pode ser conferido no repositório dos dados.</description>
     </item>
   </channel>

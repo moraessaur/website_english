@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"><head>
+<html lang="en" dir="ltr"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
   
                            
      
@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.122.0">
+<meta name="generator" content="Hugo 0.127.0">
 <title>Data viz: custo de malhas urbanas | Site pessoal Lucas Moraes. Data Science. Biology.</title>
 
 
@@ -33,25 +33,26 @@
 <meta property="og:description" content="Passo-a-passo da customização de um gráfico no ggplot2.
 " />
 <meta property="og:type" content="page" />
-<meta property="og:url" content="/blog/tidy_tuesday_1/" />
+<meta property="og:url" content="//localhost:4321/blog/tidy_tuesday_1/" />
 <meta property="og:locale" content="en">
 
 
 
 
     
-        <meta property="og:image" content="/blog/tidy_tuesday_1/featured.jpg" >
+        <meta property="og:image" content="//localhost:4321/blog/tidy_tuesday_1/featured.jpg" >
         <meta property="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="/blog/tidy_tuesday_1/featured.jpg" >
+        <meta name="twitter:image" content="//localhost:4321/blog/tidy_tuesday_1/featured.jpg" >
     
     
-  <meta itemprop="name" content="Data viz: custo de malhas urbanas">
-<meta itemprop="description" content="Neste post, vou usar dados do Tidy Tuesday referente à semana de 05/01/2021 para demonstrar o passo-a-passo da criação de um plot. O objetivo desse post é apenas demonstrar algumas ferramentas de formatação do ggplot2 e de alguns pacotes acessórios para customizar um gráfico, sem nenhum tipo de objetivo relacionado à análise de dados ou estatística.
-A partir dos dados da tabela, vou mostrar como cheguei no gráfico abaixo:">
-
-<meta itemprop="wordCount" content="1616"><meta itemprop="image" content="/blog/tidy_tuesday_1/featured.jpg" />
-<meta itemprop="keywords" content="" />
   
+  <meta itemprop="name" content="Data viz: custo de malhas urbanas">
+  <meta itemprop="description" content="Neste post, vou usar dados do Tidy Tuesday referente à semana de 05/01/2021 para demonstrar o passo-a-passo da criação de um plot. O objetivo desse post é apenas demonstrar algumas ferramentas de formatação do ggplot2 e de alguns pacotes acessórios para customizar um gráfico, sem nenhum tipo de objetivo relacionado à análise de dados ou estatística.
+A partir dos dados da tabela, vou mostrar como cheguei no gráfico abaixo:
+## ## Downloading file 1 of 1: `transit_cost.">
+  <meta itemprop="wordCount" content="1616">
+  <meta itemprop="image" content="//localhost:4321/blog/tidy_tuesday_1/featured.jpg">
+  <meta itemprop="keywords" content="Data Viz,Ggplot2,Tidy Tuesday">
   <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="shortcut icon" href="/img/icon-512.png" type="image/x-icon">
   <link rel="icon" href="/img/icon-512.png" type="image/x-icon">
@@ -63,13 +64,13 @@ A partir dos dados da tabela, vou mostrar como cheguei no gráfico abaixo:">
   <script src="/panelset.min.ed1ac24b6e16f4e2481e3d1d098ae66f5bc77438aef619e6e266d8ac5b00dc72.js" type="text/javascript"></script>
   
   
-  <script src="/main.min.bc816089b0f15d455c5a85fd22ce3f8dd07afbb8628e8bcb5841f7d35f3e6dc8.js" type="text/javascript"></script>
+  <script src="/main.min.1f1163b4683f0d037ca217145e4575b02c601ae80b3e276a6771217bdaa92515.js" type="text/javascript"></script>
 </head>
 <body>
       <div class="grid-container">
 <header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
   <nav class="site-nav db dt-l w-100" role="navigation">
-    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="//localhost:4321/" title="Home">
       <img src="/img/home.png" class="dib db-l h2 w-auto" alt="Site pessoal Lucas Moraes. Data Science. Biology.">
     </a>
     <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
@@ -100,200 +101,204 @@ A partir dos dados da tabela, vou mostrar como cheguei no gráfico abaixo:">
       <header class="post-header">
         <h1 class="f1 lh-solid measure-narrow mb3 fw4">Data viz: custo de malhas urbanas</h1>
         
-        <p class="f6 measure lh-copy mv1">By [map[name:Lucas Moraes. url:https://lucasmoraes.org]] in <a href="/categories/data-viz">Data viz</a>  <a href="/categories/ggplot2">ggplot2</a>  <a href="/categories/tidy-tuesday">Tidy tuesday</a> </p>
+        <p class="f6 measure lh-copy mv1">By [map[name:Lucas Moraes. url:https://lucasmoraes.org]] in <a href="//localhost:4321/categories/data-viz">Data viz</a>  <a href="//localhost:4321/categories/ggplot2">ggplot2</a>  <a href="//localhost:4321/categories/tidy-tuesday">Tidy tuesday</a> </p>
         <p class="f7 db mv0 ttu">January 1, 0001</p>
 
       
 
       </header>
       <section class="post-body pt5 pb4">
-        
-<script src="/blog/tidy_tuesday_1/index_files/header-attrs/header-attrs.js"></script>
-
-
-<p>Neste post, vou usar dados do Tidy Tuesday referente à semana de 05/01/2021 para demonstrar o passo-a-passo da criação de um plot. O objetivo desse post é apenas demonstrar algumas ferramentas de formatação do <code>ggplot2</code> e de alguns pacotes acessórios para customizar um gráfico, sem nenhum tipo de objetivo relacionado à análise de dados ou estatística.</p>
+        <p>Neste post, vou usar dados do Tidy Tuesday referente à semana de 05/01/2021 para demonstrar o passo-a-passo da criação de um plot. O objetivo desse post é apenas demonstrar algumas ferramentas de formatação do <code>ggplot2</code> e de alguns pacotes acessórios para customizar um gráfico, sem nenhum tipo de objetivo relacionado à análise de dados ou estatística.</p>
 <p>A partir dos dados da tabela, vou mostrar como cheguei no gráfico abaixo:</p>
-<pre><code>## 
-##  Downloading file 1 of 1: `transit_cost.csv`</code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<div id="formatação-dos-dados" class="section level1">
-<h1>Formatação dos dados</h1>
-<p>Os dados utilizados para gerar esse gráfico se referem à custos referentes à projetos de infraestrutura de trânsito. A tabela contendo os dados pode ser lida diretamente usando a função <code>tt_load</code> do pacote <code>tidytuesday</code>, incluindo como input da função a data referente à inclusão do <em>dataset</em>:</p>
-<pre class="r"><code># carregando todos pacotes utilizados nessa análise
-library(tidyverse) 
-library(scales) # utilizado para configurar a formatação dos eixos do gráfico
+<pre tabindex="0"><code>## 
+## 	Downloading file 1 of 1: `transit_cost.csv`
+</code></pre><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-1-1.png" width="672" />
 
-tuesdata &lt;- tidytuesdayR::tt_load(&#39;2021-01-05&#39;) # vou baixar os dados referentes à essa semana</code></pre>
-<pre><code>## --- Compiling #TidyTuesday Information for 2021-01-05 ----</code></pre>
-<pre><code>## --- There is 1 file available ---</code></pre>
-<pre><code>## --- Starting Download ---</code></pre>
-<pre><code>## 
-##  Downloading file 1 of 1: `transit_cost.csv`</code></pre>
-<pre><code>## --- Download complete ---</code></pre>
-<pre class="r"><code>transit_cost &lt;- tuesdata$transit_cost # leitura da tabela em si</code></pre>
-<p>Agora, vou dar uma olhada na estrutura da tabela e escolher as variáveis que vou utilizar no plot:</p>
-<pre class="r"><code>glimpse(transit_cost)</code></pre>
-<pre><code>## Rows: 544
+
+
+
+<h1 id="formatação-dos-dados">Formatação dos dados
+  <a href="#formata%c3%a7%c3%a3o-dos-dados"></a>
+</h1>
+<p>Os dados utilizados para gerar esse gráfico se referem à custos referentes à projetos de infraestrutura de trânsito. A tabela contendo os dados pode ser lida diretamente usando a função <code>tt_load</code> do pacote <code>tidytuesday</code>, incluindo como input da função a data referente à inclusão do <em>dataset</em>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># carregando todos pacotes utilizados nessa análise</span>
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(tidyverse) 
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(scales) <span style="color:#998;font-style:italic"># utilizado para configurar a formatação dos eixos do gráfico</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tuesdata <span style="color:#000;font-weight:bold">&lt;-</span> tidytuesdayR<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">tt_load</span>(<span style="color:#d14">&#39;2021-01-05&#39;</span>) <span style="color:#998;font-style:italic"># vou baixar os dados referentes à essa semana</span>
+</span></span></code></pre></div><pre tabindex="0"><code>## --- Compiling #TidyTuesday Information for 2021-01-05 ----
+</code></pre><pre tabindex="0"><code>## --- There is 1 file available ---
+</code></pre><pre tabindex="0"><code>## --- Starting Download ---
+</code></pre><pre tabindex="0"><code>## 
+## 	Downloading file 1 of 1: `transit_cost.csv`
+</code></pre><pre tabindex="0"><code>## --- Download complete ---
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">&lt;-</span> tuesdata<span style="color:#000;font-weight:bold">$</span>transit_cost <span style="color:#998;font-style:italic"># leitura da tabela em si</span>
+</span></span></code></pre></div><p>Agora, vou dar uma olhada na estrutura da tabela e escolher as variáveis que vou utilizar no plot:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">glimpse</span>(transit_cost)
+</span></span></code></pre></div><pre tabindex="0"><code>## Rows: 544
 ## Columns: 20
 ## $ e                &lt;dbl&gt; 7136, 7137, 7138, 7139, 7144, 7145, 7146, 7147, 7152,…
-## $ country          &lt;chr&gt; &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;NL&quot;, &quot;CA&quot;, &quot;US&quot;, &quot;US&quot;,…
-## $ city             &lt;chr&gt; &quot;Vancouver&quot;, &quot;Toronto&quot;, &quot;Toronto&quot;, &quot;Toronto&quot;, &quot;Toront…
-## $ line             &lt;chr&gt; &quot;Broadway&quot;, &quot;Vaughan&quot;, &quot;Scarborough&quot;, &quot;Ontario&quot;, &quot;Yon…
-## $ start_year       &lt;chr&gt; &quot;2020&quot;, &quot;2009&quot;, &quot;2020&quot;, &quot;2020&quot;, &quot;2020&quot;, &quot;2003&quot;, &quot;2020…
-## $ end_year         &lt;chr&gt; &quot;2025&quot;, &quot;2017&quot;, &quot;2030&quot;, &quot;2030&quot;, &quot;2030&quot;, &quot;2018&quot;, &quot;2026…
+## $ country          &lt;chr&gt; &#34;CA&#34;, &#34;CA&#34;, &#34;CA&#34;, &#34;CA&#34;, &#34;CA&#34;, &#34;NL&#34;, &#34;CA&#34;, &#34;US&#34;, &#34;US&#34;,…
+## $ city             &lt;chr&gt; &#34;Vancouver&#34;, &#34;Toronto&#34;, &#34;Toronto&#34;, &#34;Toronto&#34;, &#34;Toront…
+## $ line             &lt;chr&gt; &#34;Broadway&#34;, &#34;Vaughan&#34;, &#34;Scarborough&#34;, &#34;Ontario&#34;, &#34;Yon…
+## $ start_year       &lt;chr&gt; &#34;2020&#34;, &#34;2009&#34;, &#34;2020&#34;, &#34;2020&#34;, &#34;2020&#34;, &#34;2003&#34;, &#34;2020…
+## $ end_year         &lt;chr&gt; &#34;2025&#34;, &#34;2017&#34;, &#34;2030&#34;, &#34;2030&#34;, &#34;2030&#34;, &#34;2018&#34;, &#34;2026…
 ## $ rr               &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
 ## $ length           &lt;dbl&gt; 5.7, 8.6, 7.8, 15.5, 7.4, 9.7, 5.8, 5.1, 4.2, 4.2, 6.…
-## $ tunnel_per       &lt;chr&gt; &quot;87.72%&quot;, &quot;100.00%&quot;, &quot;100.00%&quot;, &quot;57.00%&quot;, &quot;100.00%&quot;, …
+## $ tunnel_per       &lt;chr&gt; &#34;87.72%&#34;, &#34;100.00%&#34;, &#34;100.00%&#34;, &#34;57.00%&#34;, &#34;100.00%&#34;, …
 ## $ tunnel           &lt;dbl&gt; 5.0, 8.6, 7.8, 8.8, 7.4, 7.1, 5.8, 5.1, 4.2, 4.2, 6.3…
 ## $ stations         &lt;dbl&gt; 6, 6, 3, 15, 6, 8, 5, 2, 2, 2, 3, 3, 4, 7, 13, 4, 4, …
-## $ source1          &lt;chr&gt; &quot;Plan&quot;, &quot;Media&quot;, &quot;Wiki&quot;, &quot;Plan&quot;, &quot;Plan&quot;, &quot;Wiki&quot;, &quot;Med…
+## $ source1          &lt;chr&gt; &#34;Plan&#34;, &#34;Media&#34;, &#34;Wiki&#34;, &#34;Plan&#34;, &#34;Plan&#34;, &#34;Wiki&#34;, &#34;Med…
 ## $ cost             &lt;dbl&gt; 2830, 3200, 5500, 8573, 5600, 3100, 4500, 1756, 3600,…
-## $ currency         &lt;chr&gt; &quot;CAD&quot;, &quot;CAD&quot;, &quot;CAD&quot;, &quot;CAD&quot;, &quot;CAD&quot;, &quot;EUR&quot;, &quot;CAD&quot;, &quot;USD…
+## $ currency         &lt;chr&gt; &#34;CAD&#34;, &#34;CAD&#34;, &#34;CAD&#34;, &#34;CAD&#34;, &#34;CAD&#34;, &#34;EUR&#34;, &#34;CAD&#34;, &#34;USD…
 ## $ year             &lt;dbl&gt; 2018, 2013, 2018, 2019, 2020, 2009, 2018, 2012, 2023,…
 ## $ ppp_rate         &lt;dbl&gt; 0.840, 0.810, 0.840, 0.840, 0.840, 1.300, 0.840, 1.00…
-## $ real_cost        &lt;chr&gt; &quot;2377.2&quot;, &quot;2592&quot;, &quot;4620&quot;, &quot;7201.32&quot;, &quot;4704&quot;, &quot;4030&quot;, …
+## $ real_cost        &lt;chr&gt; &#34;2377.2&#34;, &#34;2592&#34;, &#34;4620&#34;, &#34;7201.32&#34;, &#34;4704&#34;, &#34;4030&#34;, …
 ## $ cost_km_millions &lt;dbl&gt; 417.05263, 301.39535, 592.30769, 464.60129, 635.67568…
-## $ source2          &lt;chr&gt; &quot;Media&quot;, &quot;Media&quot;, &quot;Media&quot;, &quot;Plan&quot;, &quot;Media&quot;, &quot;Media&quot;, …
-## $ reference        &lt;chr&gt; &quot;https://www.translink.ca/Plans-and-Projects/Rapid-Tr…</code></pre>
-<p>Vou plotar o custo real da construção das malhas (<code>real_cost</code>) em função do comprimento delas (<code>length</code>), unidades respectivamente em dólares e km. Cada observação representa uma malha de uma determinada cidade em um determinado país.</p>
+## $ source2          &lt;chr&gt; &#34;Media&#34;, &#34;Media&#34;, &#34;Media&#34;, &#34;Plan&#34;, &#34;Media&#34;, &#34;Media&#34;, …
+## $ reference        &lt;chr&gt; &#34;https://www.translink.ca/Plans-and-Projects/Rapid-Tr…
+</code></pre><p>Vou plotar o custo real da construção das malhas (<code>real_cost</code>) em função do comprimento delas (<code>length</code>), unidades respectivamente em dólares e km. Cada observação representa uma malha de uma determinada cidade em um determinado país.</p>
 <p>Antes de fazer isso, entretanto, tenho que alterar o tipo da coluna <code>real_cost</code>, que está como <em>string</em>. Vou passar para a coluna para numérico:</p>
-<pre class="r"><code>transit_cost &lt;- 
-  transit_cost %&gt;% 
-    mutate(real_cost=as.numeric(real_cost))</code></pre>
-<pre><code>## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
-<p>Alguns valores são substituídos por <code>NA</code>. São entradas que contém caracteres além de números. Entradas que contém apenas algarismos (e “.” ou “,”) são convertidos corretamente.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">&lt;-</span> 
+</span></span><span style="display:flex;"><span>  transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">mutate</span>(real_cost<span style="color:#000;font-weight:bold">=</span><span style="color:#900;font-weight:bold">as.numeric</span>(real_cost))
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
+</code></pre><p>Alguns valores são substituídos por <code>NA</code>. São entradas que contém caracteres além de números. Entradas que contém apenas algarismos (e &ldquo;.&rdquo; ou &ldquo;,&rdquo;) são convertidos corretamente.</p>
 <p>Em seguida vou remover as entradas <code>NA</code> dessas duas colunas, na tabela:</p>
-<pre class="r"><code>transit_cost &lt;- 
-  transit_cost %&gt;% 
-    filter(!is.na(length), !is.na(real_cost))</code></pre>
-<p>Agora posso plotar os dados!</p>
-</div>
-<div id="gráfico-de-pontos-escala-e-reta-de-regressão" class="section level1">
-<h1>Gráfico de pontos, escala e reta de regressão</h1>
-<p>Indo direto ao ponto, quero plotar um gráfico de pontos usando essas duas variáveis:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point()</code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
-Os outliers e as diferenças em ordens de grandeza das unidades distorcem bem a escala. Isso pode ser corrigido convertendo a escala para log:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point() +
-  scale_y_log10() + # eixo y em log
-  scale_x_log10() # eixo x em log</code></pre>
-<pre><code>## Warning: Transformation introduced infinite values in continuous x-axis</code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-7-1.png" width="672" />
-Bem melhor! Existe um problema referente aos pontos que foram computados como <span class="math inline">\(-Inf\)</span> e, por isso, vão sempre tender a 0 no eixo x. Isso ocorreu por causa da conversão para log. Isso poderia ser remediado adicionando um incremento irrisório nos valores apenas para que eles se diferenciassem de 0, mas aqui, em nome da objetividade, vou retirá-los:</p>
-<pre class="r"><code>transit_cost &lt;- # retirando os infinitos negativos da coluna real_cost
-  transit_cost %&gt;% filter(real_cost &gt; 0)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">&lt;-</span> 
+</span></span><span style="display:flex;"><span>  transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">filter</span>(<span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">is.na</span>(length), <span style="color:#000;font-weight:bold">!</span><span style="color:#900;font-weight:bold">is.na</span>(real_cost))
+</span></span></code></pre></div><p>Agora posso plotar os dados!</p>
 
-transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) + # plotando novamente
-  geom_point() +
-  scale_y_log10() + # eixo y em log
-  scale_x_log10() # eixo x em log</code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-8-1.png" width="672" />
-As cores sólidas nos pontos atrapalham a visualização de pontos sobrepostos. Adicionar um efeito de transparência resolve esse problema:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point(alpha=0.5) + #adicionando transparência aos pontos
-  scale_y_log10() + 
-  scale_x_log10() </code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+
+
+
+<h1 id="gráfico-de-pontos-escala-e-reta-de-regressão">Gráfico de pontos, escala e reta de regressão
+  <a href="#gr%c3%a1fico-de-pontos-escala-e-reta-de-regress%c3%a3o"></a>
+</h1>
+<p>Indo direto ao ponto, quero plotar um gráfico de pontos usando essas duas variáveis:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>()
+</span></span></code></pre></div><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+Os outliers e as diferenças em ordens de grandeza das unidades distorcem bem a escala. Isso pode ser corrigido convertendo a escala para log:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>() <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> <span style="color:#998;font-style:italic"># eixo y em log</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>() <span style="color:#998;font-style:italic"># eixo x em log</span>
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning: Transformation introduced infinite values in continuous x-axis
+</code></pre><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+Bem melhor! Existe um problema referente aos pontos que foram computados como `\(-Inf\)` e, por isso, vão sempre tender a 0 no eixo x. Isso ocorreu por causa da conversão para log. Isso poderia ser remediado adicionando um incremento irrisório nos valores apenas para que eles se diferenciassem de 0, mas aqui, em nome da objetividade, vou retirá-los:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#998;font-style:italic"># retirando os infinitos negativos da coluna real_cost</span>
+</span></span><span style="display:flex;"><span>  transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">filter</span>(real_cost <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#099">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span> <span style="color:#998;font-style:italic"># plotando novamente</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>() <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> <span style="color:#998;font-style:italic"># eixo y em log</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>() <span style="color:#998;font-style:italic"># eixo x em log</span>
+</span></span></code></pre></div><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+As cores sólidas nos pontos atrapalham a visualização de pontos sobrepostos. Adicionar um efeito de transparência resolve esse problema:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>) <span style="color:#000;font-weight:bold">+</span> <span style="color:#998;font-style:italic">#adicionando transparência aos pontos</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>() 
+</span></span></code></pre></div><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 <p>Em seguida, vou adicionar uma reta de regressão no gráfico. Isso pode ser feito usando a função <code>geom_smooth</code>, especificando o argumento <code>method</code> como <code>lm</code> (método linear):</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point(alpha=0.5) +
-  geom_smooth(method=&quot;lm&quot;) +
-  scale_y_log10() + 
-  scale_x_log10() </code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-10-1.png" width="672" />
-Não quero uma linha sólida e também não quero que o erro padrão esteja presente no gráfico. Vou alterar isso incluindo os argumentos <code>lty</code> (de <em>linetype</em>) e <code>se</code> (de <em>standard error</em>). Também quero alterar a cor da reta, o que é feito intuitivamente usando o argumento <code>color</code>:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point(alpha=0.5) +
-  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) + # alterando propriedades da reta
-  scale_y_log10() + 
-  scale_x_log10() </code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-11-1.png" width="672" />
-# Mexendo nas cores</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_smooth</span>(method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;lm&#34;</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>() 
+</span></span></code></pre></div><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+Não quero uma linha sólida e também não quero que o erro padrão esteja presente no gráfico. Vou alterar isso incluindo os argumentos `lty` (de *linetype*) e `se` (de *standard error*). Também quero alterar a cor da reta, o que é feito intuitivamente usando o argumento `color`:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_smooth</span>(method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;lm&#34;</span>,lty<span style="color:#000;font-weight:bold">=</span><span style="color:#099">2</span>,color<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;black&#34;</span>,se <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>) <span style="color:#000;font-weight:bold">+</span> <span style="color:#998;font-style:italic"># alterando propriedades da reta</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>() 
+</span></span></code></pre></div><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+# Mexendo nas cores
 <p>Vou alterar agora o esquema de cores. Quero deixar o plano de fundo escuro e os pontos claros. A maior parte dos comandos que alteram esses atributos estão vinculadas à função <code>theme</code>, que além de alterar as cores, também pode ser usada para alterar as fontes e marcações dos eixos.</p>
 <p>Abaixo, altero a cor do grid:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point(alpha=0.5) +
-  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) + 
-  scale_y_log10() + 
-  scale_x_log10() +
-  theme(panel.background = element_rect(fill = &quot;#343536&quot;)) # alterando a cor do grid</code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-12-1.png" width="672" />
-Obviamente, não posso manter os pontos pretos com essa cor de fundo. Vou inverter a cor deles então, deixando-os, brancos:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point(alpha=0.5, color = &quot;white&quot;) + # alterando a cor dos pontos
-  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
-  scale_y_log10() + 
-  scale_x_log10() +
-  theme(panel.background = element_rect(fill = &quot;#343536&quot;))</code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_smooth</span>(method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;lm&#34;</span>,lty<span style="color:#000;font-weight:bold">=</span><span style="color:#099">2</span>,color<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;black&#34;</span>,se <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>) <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>() <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">theme</span>(panel.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>)) <span style="color:#998;font-style:italic"># alterando a cor do grid</span>
+</span></span></code></pre></div><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+Obviamente, não posso manter os pontos pretos com essa cor de fundo. Vou inverter a cor deles então, deixando-os, brancos:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>) <span style="color:#000;font-weight:bold">+</span> <span style="color:#998;font-style:italic"># alterando a cor dos pontos</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_smooth</span>(method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;lm&#34;</span>,lty<span style="color:#000;font-weight:bold">=</span><span style="color:#099">2</span>,color<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;black&#34;</span>,se <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>() <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">theme</span>(panel.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>))
+</span></span></code></pre></div><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 <p>Eu quero <strong>todo</strong> gráfico escuro, não apenas o grid. Então vou incluir mais um argumento na função <code>theme</code> para dar conta disso:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point(alpha=0.5, color = &quot;white&quot;) + 
-  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
-  scale_y_log10() + 
-  scale_x_log10() +
-  theme(panel.background = element_rect(fill = &quot;#343536&quot;),
-        rect = element_rect(fill = &quot;#343536&quot;, color = NA)) # cor na imagem toda</code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-14-1.png" width="672" />
-Ainda existe uma linha branca envolvendo todo plot, que está bem feia. De novo, vou mexer na função <code>theme</code>, dessa vez incluindo o argumento <code>plot.background</code>, definindo ele como <code>element_rect(color=NA)</code>, o que significa que a margem não vai ter cor nenhuma:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point(alpha=0.5, color = &quot;white&quot;) + 
-  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
-  scale_y_log10() + 
-  scale_x_log10() +
-  theme(panel.background = element_rect(fill = &quot;#343536&quot;),
-        rect = element_rect(fill = &quot;#343536&quot;, color = NA),
-        plot.background = element_rect(color = NA)) # tirando a cor da borda </code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-15-1.png" width="672" />
-As fontes do gráfico precisam de cores melhores agora. Os texto do gráfico (título, subtítulo e título dos eixos) e o texto das unidades dos eixos em si, são elementos diferentes. Vou definir ambos como branco, usando dois argumentos, <code>text</code> e <code>axis_text</code>:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point(alpha=0.5, color = &quot;white&quot;) + 
-  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
-  scale_y_log10() + 
-  scale_x_log10() +
-  theme(panel.background = element_rect(fill = &quot;#343536&quot;),
-        rect = element_rect(fill = &quot;#343536&quot;, color = NA),
-        plot.background = element_rect(color = NA),
-        text = element_text( color = &quot;white&quot;), # cor do texto do gráfico em branco
-        axis.text = element_text( color = &quot;white&quot;)) # cor do conteúdo dos eixos em branco</code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-16-1.png" width="672" />
-# Formatando o texto</p>
-<p>Agora vou mexer na formatação do texto dos eixos, saindo da função <code>theme</code>. Primeiro, vou adicionar a notação de grandeza como “.” no eixo x. Isso pode ser feito incluindo o argumento <code>labels = comma_format(big.mark = ".")</code> dentro da função <code>scale_x_log10</code>. Esse argumento não faz parte do <code>ggplot2</code>, ele vem do pacote <code>scales</code>:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point(alpha=0.5, color = &quot;white&quot;) + 
-  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
-  scale_y_log10() + 
-  scale_x_log10(labels = comma_format(big.mark = &quot;.&quot;)) + # notação decimal no eixo
-  theme(panel.background = element_rect(fill = &quot;#343536&quot;),
-        rect = element_rect(fill = &quot;#343536&quot;, color = NA),
-        plot.background = element_rect(color = NA),
-        text = element_text( color = &quot;white&quot;),
-        axis.text = element_text( color = &quot;white&quot;)) </code></pre>
-<pre><code>## Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
-## &#39;big.mark&#39; and &#39;decimal.mark&#39; are both &#39;.&#39;, which could be confusing</code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>) <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_smooth</span>(method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;lm&#34;</span>,lty<span style="color:#000;font-weight:bold">=</span><span style="color:#099">2</span>,color<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;black&#34;</span>,se <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>() <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">theme</span>(panel.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>),
+</span></span><span style="display:flex;"><span>        rect <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">NA</span>)) <span style="color:#998;font-style:italic"># cor na imagem toda</span>
+</span></span></code></pre></div><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+Ainda existe uma linha branca envolvendo todo plot, que está bem feia. De novo, vou mexer na função `theme`, dessa vez incluindo o argumento `plot.background`, definindo ele como `element_rect(color=NA)`, o que significa que a margem não vai ter cor nenhuma:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>) <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_smooth</span>(method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;lm&#34;</span>,lty<span style="color:#000;font-weight:bold">=</span><span style="color:#099">2</span>,color<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;black&#34;</span>,se <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>() <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">theme</span>(panel.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>),
+</span></span><span style="display:flex;"><span>        rect <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">NA</span>),
+</span></span><span style="display:flex;"><span>        plot.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(color <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">NA</span>)) <span style="color:#998;font-style:italic"># tirando a cor da borda </span>
+</span></span></code></pre></div><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+As fontes do gráfico precisam de cores melhores agora. Os texto do gráfico (título, subtítulo e título dos eixos) e o texto das unidades dos eixos em si, são elementos diferentes. Vou definir ambos como branco, usando dois argumentos, `text` e `axis_text`:   
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>) <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_smooth</span>(method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;lm&#34;</span>,lty<span style="color:#000;font-weight:bold">=</span><span style="color:#099">2</span>,color<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;black&#34;</span>,se <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>() <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">theme</span>(panel.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>),
+</span></span><span style="display:flex;"><span>        rect <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">NA</span>),
+</span></span><span style="display:flex;"><span>        plot.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(color <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">NA</span>),
+</span></span><span style="display:flex;"><span>        text <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_text</span>( color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>), <span style="color:#998;font-style:italic"># cor do texto do gráfico em branco</span>
+</span></span><span style="display:flex;"><span>        axis.text <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_text</span>( color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>)) <span style="color:#998;font-style:italic"># cor do conteúdo dos eixos em branco</span>
+</span></span></code></pre></div><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+# Formatando o texto
+<p>Agora vou mexer na formatação do texto dos eixos, saindo da função <code>theme</code>. Primeiro, vou adicionar a notação de grandeza como &ldquo;.&rdquo; no eixo x. Isso pode ser feito incluindo o argumento <code>labels = comma_format(big.mark = &quot;.&quot;)</code> dentro da função <code>scale_x_log10</code>. Esse argumento não faz parte do <code>ggplot2</code>, ele vem do pacote <code>scales</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>) <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_smooth</span>(method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;lm&#34;</span>,lty<span style="color:#000;font-weight:bold">=</span><span style="color:#099">2</span>,color<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;black&#34;</span>,se <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>(labels <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">comma_format</span>(big.mark <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;.&#34;</span>)) <span style="color:#000;font-weight:bold">+</span> <span style="color:#998;font-style:italic"># notação decimal no eixo</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">theme</span>(panel.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>),
+</span></span><span style="display:flex;"><span>        rect <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">NA</span>),
+</span></span><span style="display:flex;"><span>        plot.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(color <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">NA</span>),
+</span></span><span style="display:flex;"><span>        text <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_text</span>( color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>),
+</span></span><span style="display:flex;"><span>        axis.text <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_text</span>( color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>)) 
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+## &#39;big.mark&#39; and &#39;decimal.mark&#39; are both &#39;.&#39;, which could be confusing
+</code></pre><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 <p>Agora, para finalizar, vou adicionar um título, subtítulo e renomear o eixo y e eixo x:</p>
-<pre class="r"><code>transit_cost %&gt;% ggplot(aes(y=length,x=real_cost)) +
-  geom_point(alpha=0.5, color = &quot;white&quot;) + 
-  geom_smooth(method=&quot;lm&quot;,lty=2,color=&quot;black&quot;,se = FALSE) +
-  scale_y_log10() + 
-  scale_x_log10(labels = comma_format(big.mark = &quot;.&quot;)) + # notação decimal no eixo
-  theme(panel.background = element_rect(fill = &quot;#343536&quot;),
-        rect = element_rect(fill = &quot;#343536&quot;, color = NA),
-        plot.background = element_rect(color = NA),
-        text = element_text( color = &quot;white&quot;),
-        axis.text = element_text( color = &quot;white&quot;))  +
-  ylab(&quot;Comprimento (km)&quot;) + # renomeando eixo y
-  xlab(&quot;Custo real (USD)&quot;) + # renomeando eixo x
-  ggtitle(&quot;Custo por comprimento de malhas urbanas.&quot;, # título e subtítulo
-          subtitle = &quot;Dados extraídos do tidy tuesday de 05/01/2020 e utilizado como\nmodelo para um exercício de customização de gráficos no ggplot2.\n\nCada ponto representa uma malha construída em alguma cidade no mundo.\n&quot;)</code></pre>
-<pre><code>## Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
-## &#39;big.mark&#39; and &#39;decimal.mark&#39; are both &#39;.&#39;, which could be confusing</code></pre>
-<p><img src="/blog/tidy_tuesday_1/index_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>transit_cost <span style="color:#000;font-weight:bold">%&gt;%</span> <span style="color:#900;font-weight:bold">ggplot</span>(<span style="color:#900;font-weight:bold">aes</span>(y<span style="color:#000;font-weight:bold">=</span>length,x<span style="color:#000;font-weight:bold">=</span>real_cost)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>(alpha<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>) <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_smooth</span>(method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;lm&#34;</span>,lty<span style="color:#000;font-weight:bold">=</span><span style="color:#099">2</span>,color<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;black&#34;</span>,se <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_y_log10</span>() <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">scale_x_log10</span>(labels <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">comma_format</span>(big.mark <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;.&#34;</span>)) <span style="color:#000;font-weight:bold">+</span> <span style="color:#998;font-style:italic"># notação decimal no eixo</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">theme</span>(panel.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>),
+</span></span><span style="display:flex;"><span>        rect <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;#343536&#34;</span>, color <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">NA</span>),
+</span></span><span style="display:flex;"><span>        plot.background <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_rect</span>(color <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">NA</span>),
+</span></span><span style="display:flex;"><span>        text <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_text</span>( color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>),
+</span></span><span style="display:flex;"><span>        axis.text <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_text</span>( color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;white&#34;</span>))  <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">ylab</span>(<span style="color:#d14">&#34;Comprimento (km)&#34;</span>) <span style="color:#000;font-weight:bold">+</span> <span style="color:#998;font-style:italic"># renomeando eixo y</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">xlab</span>(<span style="color:#d14">&#34;Custo real (USD)&#34;</span>) <span style="color:#000;font-weight:bold">+</span> <span style="color:#998;font-style:italic"># renomeando eixo x</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">ggtitle</span>(<span style="color:#d14">&#34;Custo por comprimento de malhas urbanas.&#34;</span>, <span style="color:#998;font-style:italic"># título e subtítulo</span>
+</span></span><span style="display:flex;"><span>          subtitle <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Dados extraídos do tidy tuesday de 05/01/2020 e utilizado como\nmodelo para um exercício de customização de gráficos no ggplot2.\n\nCada ponto representa uma malha construída em alguma cidade no mundo.\n&#34;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>## Warning in prettyNum(.Internal(format(x, trim, digits, nsmall, width, 3L, :
+## &#39;big.mark&#39; and &#39;decimal.mark&#39; are both &#39;.&#39;, which could be confusing
+</code></pre><img src="/blog/2021-01-07-tidytuesday20210105/tidytuesday20210105_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 <p>E pronto! Está aí o gráfico. Lembrando, cada ponto representa uma malha em alguma localidade de alguma cidade de algum país. Então cada país está representado diversas vezes no gráfico, de acordo com a localidade da malha. Entretando, meu foco aqui não foi limpar os dados para análise, apenas utilizá-los para gerar o gráfico customizado.</p>
-</div>
 
         
         <details closed class="f6 fw7 input-reset">
@@ -308,7 +313,7 @@ As fontes do gráfico precisam de cores melhores agora. Os texto do gráfico (t�
   
   <dl class="f6 lh-copy">
     <dt class="fw7">Categories:</dt>
-    <dd class="fw5 ml0"> <a href="/categories/data-viz">Data viz</a>  <a href="/categories/ggplot2">ggplot2</a>  <a href="/categories/tidy-tuesday">Tidy tuesday</a> </dd>
+    <dd class="fw5 ml0"> <a href="//localhost:4321/categories/data-viz">Data viz</a>  <a href="//localhost:4321/categories/ggplot2">ggplot2</a>  <a href="//localhost:4321/categories/tidy-tuesday">Tidy tuesday</a> </dd>
   </dl>
   
   
@@ -324,11 +329,11 @@ As fontes do gráfico precisam de cores melhores agora. Os texto do gráfico (t�
         <div class="post-pagination dt w-100 mt4 mb2">
   
     <a class="prev dtc pr2 tl v-top fw6"
-    href="/blog/tidy_tuesday_2_art/">&larr; Data viz: obras de arte</a>
+    href="//localhost:4321/blog/tidy_tuesday_2_art/">&larr; Data viz: obras de arte</a>
   
   
     <a class="next dtc pl2 tr v-top fw6"
-    href="/blog/plantas_br/">Histórico de descrições de plantas brasileiras &rarr;</a>
+    href="//localhost:4321/blog/plantas_br/">Histórico de descrições de plantas brasileiras &rarr;</a>
   
 </div>
 
