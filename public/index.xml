@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lucas Moraes on Site pessoal Lucas Moraes. Data Science. Biology.</title>
-    <link>//localhost:4321/</link>
+    <link>/</link>
     <description>Recent content in Lucas Moraes on Site pessoal Lucas Moraes. Data Science. Biology.</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 02 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:4321/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Histórico de descrições de plantas brasileiras</title>
-      <link>//localhost:4321/blog/plantas_br/</link>
+      <link>/blog/plantas_br/</link>
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:4321/blog/plantas_br/</guid>
+      <guid>/blog/plantas_br/</guid>
       <description>Dados - Flora 2020 Nessa análise usei dados extraídos do projeto Flora 2020 do Jardim Botânico do Rio de Janeiro, para gerar algumas visualizações. Como a compilação destes dados foi um processo longo, não vou tratar dela nesse post, mas todas etapas podem ser conferidas em minhas Github pages, na íntegra e com código. A idéia aqui era fazer uma análise mais enxuta e pragmática.&#xA;Os dados estão organizados em uma tabela deinida como df_master, que contém uma série de informações sobre espécies nativas de plantas brasileiras:</description>
     </item>
     <item>
       <title>Contato</title>
-      <link>//localhost:4321/contact/</link>
+      <link>/contact/</link>
       <pubDate>Mon, 25 Feb 2019 13:38:41 -0600</pubDate>
-      <guid>//localhost:4321/contact/</guid>
+      <guid>/contact/</guid>
       <description>** Contact page don&amp;rsquo;t contain a body, just the front matter above. See form.html in the layouts folder **</description>
     </item>
     <item>
       <title></title>
-      <link>//localhost:4321/cv/</link>
+      <link>/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:4321/cv/</guid>
+      <guid>/cv/</guid>
       <description>&lt;!DOCTYPE html&gt; Lucas Moraes’s CV Main Lucas Moraes I am a data scientist with experience in very different settings (academic, government and industry). This experience gave me keen communication and soft skills. I have delivered roobusts data products in all of these and am known for my organization and reproducible code. Relevant professional experience Contact&#xA;lucasmoraes.io&#xA;moraessaur@gmail.com&#xA;GitHub: @moraessaur&#xA;LinkedIn&#xA;Data Scientist Carrefour&#xA;N/A&#xA;Present - 2023&#xA;Sales forecasting for promotional events in stores across the country using supervised learning.</description>
     </item>
     <item>
       <title>Data viz: custo de malhas urbanas</title>
-      <link>//localhost:4321/blog/tidy_tuesday_1/</link>
+      <link>/blog/tidy_tuesday_1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:4321/blog/tidy_tuesday_1/</guid>
+      <guid>/blog/tidy_tuesday_1/</guid>
       <description>Neste post, vou usar dados do Tidy Tuesday referente à semana de 05/01/2021 para demonstrar o passo-a-passo da criação de um plot. O objetivo desse post é apenas demonstrar algumas ferramentas de formatação do ggplot2 e de alguns pacotes acessórios para customizar um gráfico, sem nenhum tipo de objetivo relacionado à análise de dados ou estatística.&#xA;A partir dos dados da tabela, vou mostrar como cheguei no gráfico abaixo:&#xA;## ## Downloading file 1 of 1: `transit_cost.</description>
     </item>
     <item>
       <title>Data viz: obras de arte</title>
-      <link>//localhost:4321/blog/tidy_tuesday_2_art/</link>
+      <link>/blog/tidy_tuesday_2_art/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:4321/blog/tidy_tuesday_2_art/</guid>
+      <guid>/blog/tidy_tuesday_2_art/</guid>
       <description>Post mostrando como criar um gráfico facetado, entre alguns recursos adicionais, a partir de dados do Tidy Tuesday da semana de 12-01-2012.&#xA;Como de praxe, o objetivo aqui é apenas fazer uso dos dados para criar uma visualização, explorando um pouco dos recursos do ggplot2 e alguns pacotes acessórios.&#xA;O dataset atual consistem em informações acerca de aproximadamente 70.000 obras de arte. Mais sobre o dataset pode ser conferido no repositório dos dados.</description>
     </item>
     <item>
       <title>License</title>
-      <link>//localhost:4321/license/</link>
+      <link>/license/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:4321/license/</guid>
+      <guid>/license/</guid>
       <description>My blog posts are released under a Creative Commons Attribution-ShareAlike 4.0 International License.</description>
     </item>
     <item>
       <title>Regressão Linear Simples - Fish Market data</title>
-      <link>//localhost:4321/blog/fish_market/</link>
+      <link>/blog/fish_market/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:4321/blog/fish_market/</guid>
+      <guid>/blog/fish_market/</guid>
       <description>Para fazer essa análise, vou usar o dataset Fish quem contém diferentes medidas de peixes registrados em um mercado. Versões com código podem ser conferidas no meu Kaggle (em inglês) ou nas minhas Github pages.&#xA;Meu objetivo aqui vai ser escolher uma variável de resposta e a melhor variável que explique seu comportamento.&#xA;Primeiro vou dar uma olhada no dataset:&#xA;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ── ## ✓ ggplot2 3.</description>
     </item>
     <item>
       <title>Regressão Logística Binomial</title>
-      <link>//localhost:4321/blog/regressao_binomial_heart/</link>
+      <link>/blog/regressao_binomial_heart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:4321/blog/regressao_binomial_heart/</guid>
+      <guid>/blog/regressao_binomial_heart/</guid>
       <description>Regressão logística usando o dataset Logistic regression to predict heart disease, extraído do Kaggle.&#xA;Este dataset consiste em uma tabela com uma série de variáveis de pacientes com e sem doenças cardíacas. O objetivo aqui é conferir a probabilidade de um paciente vir a desenvolver doenças cardíacas em sua próxima década de vida, com base nessas informações.&#xA;Nessa análise vou usar uma regressão logística para entender as variáveis que melhor descrevem a variável de resposta (risco de doenças cardíacas nos próximos dez anos), não incluindo nesse post analises preditivas.</description>
     </item>
   </channel>

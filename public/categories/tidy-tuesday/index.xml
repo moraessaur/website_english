@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tidy Tuesday on Site pessoal Lucas Moraes. Data Science. Biology.</title>
-    <link>//localhost:4321/categories/tidy-tuesday/</link>
+    <link>/categories/tidy-tuesday/</link>
     <description>Recent content in Tidy Tuesday on Site pessoal Lucas Moraes. Data Science. Biology.</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="//localhost:4321/categories/tidy-tuesday/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/tidy-tuesday/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data viz: custo de malhas urbanas</title>
-      <link>//localhost:4321/blog/tidy_tuesday_1/</link>
+      <link>/blog/tidy_tuesday_1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:4321/blog/tidy_tuesday_1/</guid>
+      <guid>/blog/tidy_tuesday_1/</guid>
       <description>Neste post, vou usar dados do Tidy Tuesday referente à semana de 05/01/2021 para demonstrar o passo-a-passo da criação de um plot. O objetivo desse post é apenas demonstrar algumas ferramentas de formatação do ggplot2 e de alguns pacotes acessórios para customizar um gráfico, sem nenhum tipo de objetivo relacionado à análise de dados ou estatística.&#xA;A partir dos dados da tabela, vou mostrar como cheguei no gráfico abaixo:&#xA;## ## Downloading file 1 of 1: `transit_cost.</description>
     </item>
     <item>
       <title>Data viz: obras de arte</title>
-      <link>//localhost:4321/blog/tidy_tuesday_2_art/</link>
+      <link>/blog/tidy_tuesday_2_art/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:4321/blog/tidy_tuesday_2_art/</guid>
+      <guid>/blog/tidy_tuesday_2_art/</guid>
       <description>Post mostrando como criar um gráfico facetado, entre alguns recursos adicionais, a partir de dados do Tidy Tuesday da semana de 12-01-2012.&#xA;Como de praxe, o objetivo aqui é apenas fazer uso dos dados para criar uma visualização, explorando um pouco dos recursos do ggplot2 e alguns pacotes acessórios.&#xA;O dataset atual consistem em informações acerca de aproximadamente 70.000 obras de arte. Mais sobre o dataset pode ser conferido no repositório dos dados.</description>
     </item>
   </channel>

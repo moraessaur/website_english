@@ -2,67 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:4321/categories/an%C3%A1lise-de-dados/</loc>
+    <loc>/categories/an%C3%A1lise-de-dados/</loc>
     <lastmod>2021-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:4321/blog/</loc>
+    <loc>/blog/</loc>
     <lastmod>2021-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:4321/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2021-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:4321/categories/data-viz/</loc>
+    <loc>/categories/data-viz/</loc>
     <lastmod>2021-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:4321/categories/flora/</loc>
+    <loc>/categories/flora/</loc>
     <lastmod>2021-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:4321/blog/plantas_br/</loc>
+    <loc>/blog/plantas_br/</loc>
     <lastmod>2021-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:4321/categories/leitura-r%C3%A1pida/</loc>
+    <loc>/categories/leitura-r%C3%A1pida/</loc>
     <lastmod>2021-01-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:4321/contact/</loc>
+    <loc>/contact/</loc>
     <lastmod>2019-02-25T13:38:41-06:00</lastmod>
   </url><url>
-    <loc>//localhost:4321/</loc>
+    <loc>/</loc>
     <lastmod>2019-02-18T12:27:33-06:00</lastmod>
   </url><url>
-    <loc>//localhost:4321/cv/</loc>
+    <loc>/cv/</loc>
   </url><url>
-    <loc>//localhost:4321/categories/auc/</loc>
+    <loc>/categories/auc/</loc>
   </url><url>
-    <loc>//localhost:4321/blog/tidy_tuesday_1/</loc>
+    <loc>/blog/tidy_tuesday_1/</loc>
   </url><url>
-    <loc>//localhost:4321/blog/tidy_tuesday_2_art/</loc>
+    <loc>/blog/tidy_tuesday_2_art/</loc>
   </url><url>
-    <loc>//localhost:4321/categories/dist%C3%A2ncia-de-cook/</loc>
+    <loc>/categories/dist%C3%A2ncia-de-cook/</loc>
   </url><url>
-    <loc>//localhost:4321/categories/facet_wrap/</loc>
+    <loc>/categories/facet_wrap/</loc>
   </url><url>
-    <loc>//localhost:4321/categories/ggplot2/</loc>
+    <loc>/categories/ggplot2/</loc>
   </url><url>
-    <loc>//localhost:4321/license/</loc>
+    <loc>/license/</loc>
   </url><url>
-    <loc>//localhost:4321/categories/matriz-de-confus%C3%A3o/</loc>
+    <loc>/categories/matriz-de-confus%C3%A3o/</loc>
   </url><url>
-    <loc>//localhost:4321/categories/regress%C3%A3o-linear/</loc>
+    <loc>/categories/regress%C3%A3o-linear/</loc>
   </url><url>
-    <loc>//localhost:4321/blog/fish_market/</loc>
+    <loc>/blog/fish_market/</loc>
   </url><url>
-    <loc>//localhost:4321/categories/regress%C3%A3o-log%C3%ADstica/</loc>
+    <loc>/categories/regress%C3%A3o-log%C3%ADstica/</loc>
   </url><url>
-    <loc>//localhost:4321/blog/regressao_binomial_heart/</loc>
+    <loc>/blog/regressao_binomial_heart/</loc>
   </url><url>
-    <loc>//localhost:4321/categories/roc/</loc>
+    <loc>/categories/roc/</loc>
   </url><url>
-    <loc>//localhost:4321/series/</loc>
+    <loc>/series/</loc>
   </url><url>
-    <loc>//localhost:4321/tags/</loc>
+    <loc>/tags/</loc>
   </url><url>
-    <loc>//localhost:4321/categories/tidy-tuesday/</loc>
+    <loc>/categories/tidy-tuesday/</loc>
   </url><url>
-    <loc>//localhost:4321/categories/vif/</loc>
+    <loc>/categories/vif/</loc>
   </url>
 </urlset>

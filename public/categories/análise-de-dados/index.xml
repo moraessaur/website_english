@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Análise De Dados on Site pessoal Lucas Moraes. Data Science. Biology.</title>
-    <link>//localhost:4321/categories/an%C3%A1lise-de-dados/</link>
+    <link>/categories/an%C3%A1lise-de-dados/</link>
     <description>Recent content in Análise De Dados on Site pessoal Lucas Moraes. Data Science. Biology.</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 02 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:4321/categories/an%C3%A1lise-de-dados/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/an%C3%A1lise-de-dados/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Histórico de descrições de plantas brasileiras</title>
-      <link>//localhost:4321/blog/plantas_br/</link>
+      <link>/blog/plantas_br/</link>
       <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:4321/blog/plantas_br/</guid>
+      <guid>/blog/plantas_br/</guid>
       <description>Dados - Flora 2020 Nessa análise usei dados extraídos do projeto Flora 2020 do Jardim Botânico do Rio de Janeiro, para gerar algumas visualizações. Como a compilação destes dados foi um processo longo, não vou tratar dela nesse post, mas todas etapas podem ser conferidas em minhas Github pages, na íntegra e com código. A idéia aqui era fazer uma análise mais enxuta e pragmática.&#xA;Os dados estão organizados em uma tabela deinida como df_master, que contém uma série de informações sobre espécies nativas de plantas brasileiras:</description>
     </item>
   </channel>

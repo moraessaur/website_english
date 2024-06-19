@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cvs on Site pessoal Lucas Moraes. Data Science. Biology.</title>
+    <link>//localhost:4321/cv/</link>
+    <description>Recent content in Cvs on Site pessoal Lucas Moraes. Data Science. Biology.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:4321/cv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>//localhost:4321/cv/cv-copy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:4321/cv/cv-copy/</guid>
+      <description>&lt;!DOCTYPE html&gt; Lucas Moraes’s CV Main Lucas Moraes I am a data scientist with experience in very different settings (academic, government and industry). This experience gave me keen communication and soft skills. I have delivered roobusts data products in all of these and am known for my organization and reproducible code. Relevant professional experience Contact&#xA;lucasmoraes.io&#xA;moraessaur@gmail.com&#xA;GitHub: @moraessaur&#xA;LinkedIn&#xA;Data Scientist Carrefour&#xA;N/A&#xA;Present - 2023&#xA;Sales forecasting for promotional events in stores across the country using supervised learning.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>//localhost:4321/cv/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:4321/cv/cv/</guid>
+      <description>&lt;!DOCTYPE html&gt; Lucas Moraes’s CV Main Lucas Moraes I am a data scientist with experience in very different settings (academic, government and industry). This experience gave me keen communication and soft skills. I have delivered roobusts data products in all of these and am known for my organization and reproducible code. Relevant professional experience Contact&#xA;lucasmoraes.io&#xA;moraessaur@gmail.com&#xA;GitHub: @moraessaur&#xA;LinkedIn&#xA;Data Scientist Carrefour&#xA;N/A&#xA;Present - 2023&#xA;Sales forecasting for promotional events in stores across the country using supervised learning.</description>
+    </item>
+  </channel>
+</rss>
