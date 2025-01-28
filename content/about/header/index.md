@@ -35,9 +35,6 @@ These are the tools I use more often:
 
 * **Communication:**
   Frequently, the main public interested in the outcome of an analysis is not the same who understand what goes under the hood. As such, this information should be translated in order to make complex topics easy to understand. Scheduled reports are also a frequent activity for any data analysis team. Academia prepares us for both of these scenarios and, as such, I aid in scientific writing, presentation development and in creating clear communication, occasionally making use of tools such as Rmarkdown for different types of publications.
-
-
-  A little bit of all that can be checked in my blog!
   
 
 
